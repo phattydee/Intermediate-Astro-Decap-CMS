@@ -1,0 +1,277 @@
+---
+const services = [
+    {
+        title: "Door Cleaning",
+        text: "We've helped thousands of organizations transform to become relevant of helped thousands.",
+        img: "https://csimg.nyc3.digitaloceanspaces.com/Services/cleaner.jpg",
+        link: "",
+    },
+    {
+        title: "Door Cleaning",
+        text: "We've helped thousands of organizations transform to become relevant of helped thousands.",
+        img: "https://csimg.nyc3.digitaloceanspaces.com/Services/cleaner2.jpg",
+        link: "",
+    },
+    {
+        title: "Door Cleaning",
+        text: "We've helped thousands of organizations transform to become relevant of helped thousands.",
+        img: "https://csimg.nyc3.digitaloceanspaces.com/Services/cleaner3.jpg",
+        link: "",
+    },
+    {
+        title: "Door Cleaning",
+        text: "We've helped thousands of organizations transform to become relevant of helped thousands.",
+        img: "https://csimg.nyc3.digitaloceanspaces.com/Services/cleaner.jpg",
+        link: "",
+    },
+    {
+        title: "Door Cleaning",
+        text: "We've helped thousands of organizations transform to become relevant of helped thousands.",
+        img: "https://csimg.nyc3.digitaloceanspaces.com/Services/cleaner2.jpg",
+        link: "",
+    },
+    {
+        title: "Door Cleaning",
+        text: "We've helped thousands of organizations transform to become relevant of helped thousands.",
+        img: "https://csimg.nyc3.digitaloceanspaces.com/Services/cleaner3.jpg",
+        link: "",
+    },
+];
+---
+
+<section id="services-342">
+    <div class="cs-container">
+        <div class="cs-content">
+            <span class="cs-topper">Our Services</span>
+            <h2 class="cs-title">
+                The United Way To Find Specialist Services
+            </h2>
+            <p class="cs-text">
+                At Stitch Cleaning Service, let us help you solve problems so that you can focus on your mission. We support businesses through periods of expansion, succession.
+            </p>
+        </div>
+        <ul class="cs-card-group">
+            {
+                services.map((service) => (
+                    <li class="cs-item">
+                        <a href={service.link} class="cs-link">
+                            <picture class="cs-picture">
+                                <source media="(max-width: 600px)" srcset={service.img} />
+                                <source media="(min-width: 601px)" srcset={service.img} />
+                                <img
+                                    loading="lazy"
+                                    decoding="async"
+                                    src={service.img}
+                                    alt="cleaner"
+                                    width="413"
+                                    height="240"
+                                    aria-hidden="true"
+                                />
+                            </picture>
+                            <h3 class="cs-h3">{service.title}</h3>
+                            <p class="cs-item-text">{service.text}</p>
+                        </a>
+                    </li>
+                ))
+            }
+        </ul>
+    </div>
+</section>
+
+<style lang="less">
+/*-- -------------------------- */
+<---          Services          -->
+<--- -------------------------- -*/
+
+    /* Mobile - 360px */
+    @media only screen and (min-width: 0rem) {
+        #services-342 {
+            padding: var(--sectionPadding);
+
+            .cs-container {
+                width: 100%;
+                max-width: 80rem;
+                margin: auto;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                /* 48px - 64px */
+                gap: clamp(3rem, 6vw, 4rem);
+            }
+
+            .cs-content {
+                /* set text align to left if content needs to be left aligned */
+                text-align: center;
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                /* centers content horizontally, set to flex-start to left align */
+                align-items: center;
+            }
+
+            .cs-card-group {
+                width: 100%;
+                padding: 0;
+                margin: 0;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+                /* 16px - 20px */
+                gap: clamp(1rem, 1.6vw, 1.25rem);
+            }
+
+            .cs-item {
+                list-style: none;
+                width: 100%;
+                max-width: 31.25rem;
+                border-radius: 0.5rem;
+                position: relative;
+                z-index: 1;
+                transition:
+                    box-shadow 0.3s,
+                    transform 0.3s;
+
+                &:hover {
+                    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+                    transform: translateY(-0.4375rem);
+
+                    .cs-picture {
+                        img {
+                            opacity: 0.3;
+                            transform: scale(1.1);
+                        }
+                    }
+                    .cs-h3 {
+                        color: var(--primaryLight);
+                    }
+                }
+            }
+
+            .cs-link {
+                text-decoration: none;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+            }
+
+            .cs-picture {
+                display: block;
+                margin-bottom: (24/16rem);
+                border-radius: 0.5rem 0.5rem 0 0;
+                overflow: hidden;
+
+                img {
+                    width: 100%;
+                    height: auto;
+                    object-fit: cover;
+                    display: block;
+                    transition:
+                        opacity 0.3s,
+                        transform 0.3s;
+                }
+            }
+
+            .cs-h3 {
+                /* 20px - 25px */
+                font-size: clamp(1.25rem, 3vw, 1.5625rem);
+                line-height: 1.2em;
+                margin: (24/16rem) 0 (12/16rem) 0;
+                color: var(--headerColor);
+                text-align: center;
+                transition: color 0.3s;
+            }
+
+            .cs-item-text {
+                /* 14px - 16px */
+                font-size: clamp(0.875rem, 1.5vw, 1rem);
+                line-height: 1.5em;
+                margin: 0;
+                color: var(--bodyTextColor);
+                text-align: center;
+            }
+        }
+
+        #services-342 .cs-item:before {
+            /* border, done in pseudo so it can sit under picture */
+            content: "";
+            position: absolute;
+            height: 15px;
+            width: calc(100% - 40px);
+            background: #fff;
+            opacity: 1;
+            top: auto;
+            left: 20px;
+            bottom: 0;
+            z-index: -1;
+            border-radius: (16/16rem);
+            transition: height 0.3s;
+        }
+
+        #services-342 .cs-item:hover:before {
+            height: 100%;
+        }
+    }
+
+    /* Tablet - 768px */
+    @media only screen and (min-width: 48rem) {
+        #services-342 {
+            .cs-card-group {
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: clamp(1rem, 2vw, 1.5rem);
+            }
+
+            .cs-item {
+                width: calc(50% - clamp(0.5rem, 1vw, 0.75rem));
+            }
+        }
+    }
+
+    /* Desktop - 1024px */
+    @media only screen and (min-width: 64rem) {
+        #services-342 {
+            .cs-item {
+                width: calc(33.33% - clamp(0.67rem, 1.33vw, 1rem));
+            }
+        }
+    }
+
+    /* Large Desktop - 1300px */
+    @media only screen and (min-width: 81.25rem) {
+        #services-342 {
+            .cs-item {
+                width: calc(25% - clamp(0.75rem, 1.5vw, 1.125rem));
+            }
+        }
+    }
+
+    /* Dark Mode */
+    @media only screen and (min-width: 0rem) {
+        body.dark-mode {
+            #services-342 {
+                .cs-topper {
+                    color: var(--primaryLight);
+                }
+                .cs-title,
+                .cs-item-text {
+                    color: var(--bodyTextColorWhite);
+                }
+                .cs-h3 {
+                    color: var(--bodyTextColorWhite);
+                }
+                .cs-item {
+                    background-color: var(--medium);
+                    &:hover {
+                        background-color: var(--accent);
+                    }
+                }
+                .cs-item:before {
+                    background: var(--medium);
+                }
+            }
+        }
+    }
+</style>

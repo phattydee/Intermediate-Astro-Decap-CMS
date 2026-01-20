@@ -1,0 +1,496 @@
+---
+const teamMembers = [
+    {
+        name: "Esther Howard",
+        job: "CEO",
+        image: "https://csimg.nyc3.digitaloceanspaces.com/Meet-Team/cleaner1.png",
+        alt: "cleaner",
+    },
+    {
+        name: "Roser Fetherer",
+        job: "Project Manager",
+        image: "https://csimg.nyc3.digitaloceanspaces.com/Meet-Team/cleaner2.png",
+        alt: "cleaner",
+    },
+    {
+        name: "Needse Zedd",
+        job: "Cleaner",
+        image: "https://csimg.nyc3.digitaloceanspaces.com/Meet-Team/cleaner3.png",
+        alt: "cleaner",
+    },
+    {
+        name: "Kaisa Alita",
+        job: "CEO",
+        image: "https://csimg.nyc3.digitaloceanspaces.com/Meet-Team/cleaner4.png",
+        alt: "cleaner",
+    },
+];
+---
+
+<section id="meet-us-347">
+    <div class="cs-container">
+        <div class="cs-content">
+            <div class="cs-flex-group">
+                <span class="cs-topper">Meet Us</span>
+                <h2 class="cs-title">Our Team Members</h2>
+            </div>
+            <a href="" class="cs-button-solid">View All Members</a>
+        </div>
+        <ul class="cs-card-group">
+            {
+                teamMembers.map((member) => (
+                    <li class="cs-item">
+                        <!--Background Image-->
+                        <picture class="cs-background">
+                            <source media="(max-width: 767px)" srcset={member.image} />
+                            <source media="(min-width: 768px)" srcset={member.image} />
+                            <img
+                                aria-hidden="true"
+                                loading="lazy"
+                                decoding="async"
+                                src={member.image}
+                                alt={member.alt}
+                                width="305"
+                                height="335"
+                            />
+                        </picture>
+                        <div class="cs-info">
+                            <span class="cs-name">{member.name}</span>
+                            <span class="cs-job">{member.job}</span>
+                        </div>
+                    </li>
+                ))
+            }
+        </ul>
+        <div class="cs-bubbles cs-bubbles-small" aria-hidden="true"></div>
+        <div class="cs-bubbles cs-bubbles-big" aria-hidden="true">
+            <span class="cs-bubbles-big2"></span>
+        </div>
+    </div>
+</section>
+
+<style lang="less">
+/*-- -------------------------- */
+<---       Meet The Team        -->
+<--- -------------------------- -*/
+
+/* Mobile - 360px */
+@media only screen and (min-width: 0rem) {
+    #meet-us-347 {
+        /* clips bubbles that go off screen */
+        overflow: hidden;
+        padding: var(--sectionPadding);
+        background-color: #f7f7f7;
+
+        .cs-container {
+            width: 100%;
+            max-width: (1280/16rem);
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            /* 48px - 64px */
+            gap: clamp(3rem, 6vw, 4rem);
+        }
+
+        .cs-content {
+            /* set text align to left if content needs to be left aligned */
+            text-align: center;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            /* centers content horizontally, set to flex-start to left align */
+            align-items: center;
+        }
+
+        .cs-title {
+            /* removed at tablet */
+            margin: 0 0 (32/16rem) 0;
+        }
+
+        .cs-button-solid {
+            font-size: (16/16rem);
+            /* 46px - 56px */
+            line-height: clamp(2.875rem, 5.5vw, 3.5rem);
+            text-decoration: none;
+            font-weight: 700;
+            text-align: center;
+            margin: 0;
+            color: #fff;
+            min-width: (150/16rem);
+            padding: 0 (24/16rem);
+            background-color: var(--primary);
+            border-radius: (4/16rem);
+            display: inline-block;
+            position: relative;
+            z-index: 1;
+            /* prevents padding from adding to the width */
+            box-sizing: border-box;
+
+            &:before {
+                content: "";
+                position: absolute;
+                height: 100%;
+                width: 0%;
+                background: #000;
+                opacity: 1;
+                top: 0;
+                left: 0;
+                z-index: -1;
+                border-radius: (4/16rem);
+                transition: width 0.3s;
+            }
+
+            &:hover {
+                &:before {
+                    width: 100%;
+                }
+            }
+        }
+
+        .cs-card-group {
+            width: 100%;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            gap: (16/16rem);
+        }
+
+        .cs-item {
+            list-style: none;
+            width: 100%;
+            max-width: (344/16rem);
+            border-radius: (16/16rem);
+            /* clips corners */
+            overflow: hidden;
+            position: relative;
+
+            &:hover {
+                .cs-background {
+                    background-color: var(--primary);
+                    img {
+                        transform: scale(1.1);
+                        opacity: 0.9;
+                    }
+                }
+
+                .cs-name {
+                    color: var(--secondaryLight);
+                }
+            }
+        }
+
+        .cs-info {
+            padding: (12/16rem) (16/16rem);
+            background-color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            z-index: 10;
+        }
+
+        .cs-name {
+            font-size: (20/16rem);
+            font-weight: 700;
+            color: var(--headerColor);
+            line-height: 1.2em;
+            margin: 0;
+            display: block;
+            transition: color 0.3s;
+        }
+
+        .cs-job {
+            /* 14px - 16px */
+            font-size: clamp(0.875rem, 1.5vw, 1rem);
+            line-height: 1.5em;
+            color: var(--bodyTextColor);
+            display: block;
+        }
+
+        .cs-background {
+            width: 100%;
+            height: (340/16rem);
+            overflow: hidden;
+            display: block;
+            position: relative;
+            transition: background-color 0.3s;
+
+            img {
+                position: absolute;
+                top: 0;
+                left: 0;
+                height: 100%;
+                width: 100%;
+                /* makes it behave like a background image */
+                object-fit: cover;
+                /* makes image position itself at top of parent */
+                object-position: top;
+                transition:
+                    transform 0.6s,
+                    opacity 0.3s;
+            }
+        }
+
+        .cs-bubbles {
+            display: none;
+        }
+    }
+}
+
+/* Tablet - 700px */
+@media only screen and (min-width: 43.75rem) {
+    #meet-us-347 {
+        .cs-content {
+            text-align: left;
+            width: 100%;
+            /* makes it match the max-width of the card group */
+            max-width: (708/16rem);
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: flex-end;
+        }
+
+        .cs-title {
+            margin: 0;
+        }
+
+        .cs-card-group {
+            flex-direction: row;
+            flex-wrap: wrap;
+            width: 100%;
+        }
+
+        .cs-item {
+            width: 48.8%;
+        }
+    }
+}
+
+/* Desktop - 1024px */
+@media only screen and (min-width: 64rem) {
+    #meet-us-347 {
+        .cs-content {
+            max-width: 100%;
+        }
+
+        .cs-card-group {
+            flex-wrap: nowrap;
+            justify-content: space-between;
+        }
+
+        .cs-item {
+            /* stretch list items as far as they can go, and gap property on parent will space them apart */
+            width: 100%;
+        }
+
+        .cs-background {
+            /* 250px - 335px */
+            height: clamp(15.625rem, 25vw, 20.9375rem);
+        }
+
+        .cs-bubbles {
+            display: block;
+            position: absolute;
+        }
+
+        .cs-bubbles-small {
+            width: (222/16rem);
+            height: (152/16rem);
+            left: (-350/16rem);
+            top: (-50/16rem);
+
+            &:before {
+                /* circle 1 */
+                content: "";
+                width: (140/16rem);
+                height: (140/16rem);
+                border-radius: 50%;
+                background: #fff;
+                opacity: 1;
+                position: absolute;
+                display: block;
+                top: 0;
+                right: 0;
+                animation-name: floatAnimation2;
+                animation-duration: 6s;
+                animation-timing-function: ease-in-out;
+                animation-fill-mode: forwards;
+                animation-iteration-count: infinite;
+            }
+
+            &:after {
+                /* circle 2 */
+                content: "";
+                width: (117/16rem);
+                height: (117/16rem);
+                border-radius: 50%;
+                background: #fff;
+                opacity: 1;
+                position: absolute;
+                display: block;
+                bottom: 0;
+                left: 0;
+                animation-name: floatAnimation;
+                animation-duration: 20s;
+                animation-timing-function: ease-in-out;
+                animation-fill-mode: forwards;
+                animation-iteration-count: infinite;
+            }
+        }
+
+        .cs-bubbles-big {
+            width: (316/16rem);
+            height: (386/16rem);
+            right: (-366/16rem);
+            bottom: (-100/16rem);
+
+            &:before {
+                /* circle 1 */
+                content: "";
+                width: (94/16rem);
+                height: (94/16rem);
+                border-radius: 50%;
+                background: #fff;
+                opacity: 1;
+                position: absolute;
+                display: block;
+                top: 0;
+                left: 0;
+                animation-name: floatAnimation2;
+                animation-duration: 6s;
+                animation-timing-function: ease-in-out;
+                animation-fill-mode: forwards;
+                animation-iteration-count: infinite;
+            }
+
+            &:after {
+                /* circle 2 */
+                content: "";
+                width: (94/16rem);
+                height: (94/16rem);
+                border-radius: 50%;
+                background: #fff;
+                opacity: 1;
+                position: absolute;
+                display: block;
+                top: (70/16rem);
+                right: (60/16rem);
+                animation-name: floatAnimation;
+                animation-duration: 20s;
+                animation-timing-function: ease-in-out;
+                animation-fill-mode: forwards;
+                animation-iteration-count: infinite;
+            }
+        }
+
+        .cs-bubbles-big2 {
+            width: (211/16rem);
+            height: (211/16rem);
+            border-radius: 50%;
+            background: #fff;
+            opacity: 1;
+            position: absolute;
+            display: block;
+            bottom: (23/16rem);
+            left: (3/16rem);
+            animation-name: floatAnimation;
+            animation-duration: 14s;
+            animation-timing-function: ease-in-out;
+            animation-fill-mode: forwards;
+            animation-iteration-count: infinite;
+
+            &:before {
+                /* second bubble */
+                content: "";
+                width: (158/16rem);
+                height: (158/16rem);
+                border-radius: 50%;
+                background: #fff;
+                opacity: 1;
+                position: absolute;
+                display: block;
+                bottom: (-75/16rem);
+                right: (-75/16rem);
+                animation-name: floatAnimation2;
+                animation-duration: 6s;
+                animation-timing-function: ease-in-out;
+                animation-fill-mode: forwards;
+                animation-iteration-count: infinite;
+            }
+        }
+
+        @keyframes floatAnimation {
+            0% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-2em);
+            }
+            100% {
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes floatAnimation2 {
+            0% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-1em);
+            }
+            100% {
+                transform: translateY(0);
+            }
+        }
+    }
+}
+
+/* Dark Mode */
+@media only screen and (min-width: 0rem) {
+    body.dark-mode {
+        #meet-us-347 {
+            background-color: var(--dark);
+            .cs-topper {
+                color: var(--primaryLight);
+            }
+            .cs-title {
+                color: var(--bodyTextColorWhite);
+            }
+            .cs-info {
+                background-color: var(--medium);
+            }
+            .cs-name {
+                color: var(--bodyTextColorWhite);
+            }
+            .cs-job {
+                color: var(--bodyTextColorWhite);
+            }
+            .cs-button-solid {
+                background-color: var(--primary);
+                &:hover {
+                    &:before {
+                        background: var(--primaryLight);
+                    }
+                }
+            }
+            .cs-bubbles-small,
+            .cs-bubbles-big {
+                &:before,
+                &:after {
+                    background: var(--primaryLight);
+                }
+            }
+            .cs-bubbles-big2 {
+                background: var(--primaryLight);
+                &:before {
+                    background: var(--primary);
+                }
+            }
+        }
+    }
+}
+</style>
