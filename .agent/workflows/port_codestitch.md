@@ -73,7 +73,16 @@ Before finalizing, you must verify the CSS variables.
             *   *Map Variables*: Change the component code to use existing project variables.
             *   *Local Scope*: Define the variables inside the component's `<style>` block.
 
-## 6. Verification
+## 6. Update Tracking File
+After successfully porting a stitch, update `stitch-urls.txt` to mark it as complete:
+1.  Open `stitch-urls.txt` in the project root.
+2.  Find the line with the stitch URL you just ported (e.g., `❌ https://codestitch.app/app/dashboard/stitches/342`).
+3.  Change `❌` to `✅` and add the component filename in parentheses.
+4.  Example: `✅ https://codestitch.app/app/dashboard/stitches/342 (Services342.astro)`
+
+This helps track progress across all stitches in the Cleaning Company collection.
+
+## 7. Verification
 *   Run the dev server (`npm start`) and verify visual appearance.
 
 ---
