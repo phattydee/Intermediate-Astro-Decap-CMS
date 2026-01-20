@@ -1,0 +1,358 @@
+---
+interface Props {
+    variation?: "standard" | "reverse";
+    showSlant?: boolean;
+}
+
+const { variation = "standard", showSlant = false } = Astro.props;
+---
+
+<section
+    id={variation === "standard"
+        ? "sbs-412"
+        : showSlant
+          ? "RPsbs-411"
+          : "RPsbsr-411"}
+>
+    <div class="cs-container">
+        <div class="cs-content">
+            <span class="cs-topper">Who We Are</span>
+            <h2 class="cs-title">About Our Company</h2>
+            <p class="cs-text">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+                enim ad minim veniam, quis nostrud exercitation ullamco laboris
+                nisi ut aliquip ex ea commodo consequat.
+            </p>
+            <ul class="cs-ul">
+                <li class="cs-item">
+                    <h3 class="cs-h3">01 Title 01</h3>
+                    <p class="cs-item-text">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                        sed do eiusmod tempor incididunt.
+                    </p>
+                </li>
+                <li class="cs-item">
+                    <h3 class="cs-h3">02 Title 02</h3>
+                    <p class="cs-item-text">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                        sed do eiusmod tempor incididunt.
+                    </p>
+                </li>
+            </ul>
+            <a href="" class="cs-button-solid">More About Us</a>
+        </div>
+        <div class="cs-image-group">
+            <picture class="cs-picture cs-picture1">
+                <source
+                    media="(max-width: 600px)"
+                    srcset="https://csimg.nyc3.digitaloceanspaces.com/SideBySide/landscaping1.jpg"
+                />
+                <source
+                    media="(min-width: 601px)"
+                    srcset="https://csimg.nyc3.digitaloceanspaces.com/SideBySide/landscaping1.jpg"
+                />
+                <img
+                    aria-hidden="true"
+                    loading="lazy"
+                    decoding="async"
+                    src="https://csimg.nyc3.digitaloceanspaces.com/SideBySide/landscaping1.jpg"
+                    alt="backyard"
+                    width="229"
+                    height="352"
+                />
+            </picture>
+            <picture class="cs-picture cs-picture2">
+                <source
+                    media="(max-width: 600px)"
+                    srcset="https://csimg.nyc3.digitaloceanspaces.com/SideBySide/landscaping2.jpg"
+                />
+                <source
+                    media="(min-width: 601px)"
+                    srcset="https://csimg.nyc3.digitaloceanspaces.com/SideBySide/landscaping2.jpg"
+                />
+                <img
+                    aria-hidden="true"
+                    loading="lazy"
+                    decoding="async"
+                    src="https://csimg.nyc3.digitaloceanspaces.com/SideBySide/landscaping2.jpg"
+                    alt="backyard"
+                    width="390"
+                    height="352"
+                />
+            </picture>
+            <picture class="cs-picture cs-picture3">
+                <source
+                    media="(max-width: 600px)"
+                    srcset="https://csimg.nyc3.digitaloceanspaces.com/SideBySide/landscaping3.jpg"
+                />
+                <source
+                    media="(min-width: 601px)"
+                    srcset="https://csimg.nyc3.digitaloceanspaces.com/SideBySide/landscaping3.jpg"
+                />
+                <img
+                    aria-hidden="true"
+                    loading="lazy"
+                    decoding="async"
+                    src="https://csimg.nyc3.digitaloceanspaces.com/SideBySide/landscaping3.jpg"
+                    alt="backyard"
+                    width="649"
+                    height="227"
+                />
+            </picture>
+        </div>
+    </div>
+    {
+        showSlant && (
+            <picture class="cs-graphic">
+                <source
+                    media="(min-width: 1300px)"
+                    srcset="https://csimg.nyc3.digitaloceanspaces.com/SideBySide/svg-slant.svg"
+                />
+                <source
+                    media="(min-width: 768px)"
+                    srcset="https://csimg.nyc3.digitaloceanspaces.com/SideBySide/svg-slant-t.svg"
+                />
+                <source
+                    media="(max-width: 767px)"
+                    srcset="https://csimg.nyc3.digitaloceanspaces.com/SideBySide/svg-slant-m.svg"
+                />
+                <img
+                    class="cs-graphic-img"
+                    aria-hidden="true"
+                    loading="lazy"
+                    decoding="async"
+                    src="https://csimg.nyc3.digitaloceanspaces.com/SideBySide/svg-slant-m.svg"
+                    alt="graphic"
+                    width="360"
+                    height="741"
+                />
+            </picture>
+        )
+    }
+</section>
+
+<style lang="less">
+    /*-- -------------------------- -->
+<---       Side By Side         -->
+<--- -------------------------- -*/
+
+    /* Mobile - 360px */
+    @media only screen and (min-width: 0rem) {
+        #sbs-412,
+        #RPsbs-411,
+        #RPsbsr-411 {
+            padding: var(--sectionPadding);
+            overflow: hidden;
+            position: relative;
+            z-index: 1;
+
+            .cs-container {
+                width: 100%;
+                max-width: (550/16rem);
+                margin: auto;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                /* 48px - 64.125px */
+                gap: clamp(3rem, 6vw + 1.1em, 6.75rem);
+            }
+
+            .cs-content {
+                /* set text align to left if content needs to be left aligned */
+                text-align: left;
+                width: 100%;
+                max-width: (522/16rem);
+                display: flex;
+                flex-direction: column;
+                /* aligns address to the left on 1024px */
+                align-items: flex-start;
+            }
+
+            .cs-text {
+                margin-bottom: (16/16rem);
+                &:last-of-type {
+                    margin-bottom: (32/16rem);
+                }
+            }
+
+            .cs-ul {
+                width: 100%;
+                margin: 0 0 (32/16rem) 0;
+                padding: 0;
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: (32/16rem);
+            }
+
+            .cs-item {
+                list-style: none;
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: (12/16rem);
+            }
+
+            .cs-h3 {
+                font-size: (20/16rem);
+                line-height: 1.2em;
+                font-weight: 700;
+                margin: 0;
+                color: var(--headerColor);
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+                gap: (8/16rem);
+            }
+
+            .cs-item-text {
+                /* 14px - 16px */
+                font-size: clamp(0.875rem, 1.5vw, 1rem);
+                line-height: 1.5em;
+                margin: 0;
+                color: var(--bodyTextColor);
+            }
+
+            .cs-image-group {
+                /* scales the whole group based on the font size of the container and not the 100% of the screen width */
+                font-size: ~"min(2.3vw, .75em)";
+                width: (649/16em);
+                height: (559/16em);
+                display: block;
+                position: relative;
+            }
+
+            .cs-picture {
+                display: block;
+                position: absolute;
+                background-color: #f7f7f7;
+                /* clips img corners */
+                overflow: hidden;
+                img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                }
+            }
+
+            .cs-picture1 {
+                width: (229/16em);
+                height: (352/16em);
+                top: 0;
+                left: 0;
+                z-index: 1;
+            }
+
+            .cs-picture2 {
+                width: (390/16em);
+                height: (352/16em);
+                top: (48/16em);
+                right: 0;
+                z-index: 0;
+            }
+
+            .cs-picture3 {
+                width: (649/16em);
+                height: (227/16em);
+                bottom: 0;
+                left: 0;
+                z-index: -1;
+            }
+
+            .cs-graphic {
+                width: (360/16rem);
+                height: (741/16rem);
+                display: block;
+                position: absolute;
+                top: 0;
+                right: 0;
+                z-index: -1;
+                img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                }
+            }
+        }
+    }
+
+    /* Tablet - 768px */
+    @media only screen and (min-width: 48rem) {
+        #sbs-412,
+        #RPsbs-411,
+        #RPsbsr-411 {
+            .cs-container {
+                max-width: (1280/16rem);
+            }
+        }
+    }
+
+    /* Desktop - 1024px */
+    @media only screen and (min-width: 64rem) {
+        #sbs-412,
+        #RPsbs-411,
+        #RPsbsr-411 {
+            .cs-container {
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+            }
+
+            .cs-image-group {
+                font-size: ~"min(1.2vw, 1em)";
+                flex: none;
+            }
+
+            .cs-content {
+                width: 45%;
+                max-width: (522/16rem);
+            }
+        }
+
+        #RPsbs-411,
+        #RPsbsr-411 {
+            .cs-image-group {
+                order: 2;
+            }
+        }
+
+        #RPsbs-411 {
+            .cs-container {
+                flex-direction: row-reverse;
+            }
+        }
+    }
+
+    /* Dark Mode */
+    @media only screen and (min-width: 0rem) {
+        body.dark-mode {
+            #sbs-412,
+            #RPsbs-411,
+            #RPsbsr-411 {
+                .cs-topper {
+                    color: var(--primaryLight);
+                }
+                .cs-title,
+                .cs-text,
+                .cs-item-text,
+                .cs-h3 {
+                    color: var(--bodyTextColorWhite);
+                }
+                .cs-picture {
+                    background-color: var(--dark);
+                }
+                .cs-graphic {
+                    opacity: 0.1;
+                }
+            }
+        }
+    }
+</style>

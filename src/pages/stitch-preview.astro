@@ -1,0 +1,143 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import Hero329 from "@components/Hero/Hero329.astro";
+import Hero330 from "@components/Hero/Hero330.astro";
+import Hero331 from "@components/Hero/Hero331.astro";
+import SBS332 from "@components/SideBySide/SBS332.astro";
+import SBSR333 from "@components/SideBySide/SBSR333.astro";
+import SBS334 from "@components/SideBySide/SBS334.astro";
+import SBS335 from "@components/SideBySide/SBS335.astro";
+import SBS336 from "@components/SideBySide/SBS336.astro";
+import SBSR337 from "@components/SideBySide/SBSR337.astro";
+import SBS338 from "@components/SideBySide/SBS338.astro";
+import SBS339 from "@components/SideBySide/SBS339.astro";
+import Stats340 from "@components/Stats/Stats340.astro";
+import Services341_344 from "@components/Services/Services341_344.astro";
+import SBS411_412 from "@components/SideBySide/SBS411_412.astro";
+import Footer1104 from "@components/Footer/Footer1104.astro";
+import Contact1105 from "@components/Contact/Contact1105.astro";
+---
+
+<BaseLayout
+    title="Stitch Preview"
+    description="Preview page for ported CodeStitch components."
+>
+    <div style="padding-top: 100px;">
+        <h1 style="text-align: center; margin-bottom: 50px;">
+            Batch 1 Preview
+        </h1>
+
+        <section style="margin-bottom: 100px;">
+            <h2 style="text-align: center; background: #eee; padding: 10px;">
+                Hero 329
+            </h2>
+            <Hero329 />
+        </section>
+
+        <section style="margin-bottom: 100px;">
+            <h2 style="text-align: center; background: #eee; padding: 10px;">
+                Hero 330
+            </h2>
+            <Hero330 />
+        </section>
+
+        <section style="margin-bottom: 100px;">
+            <h2 style="text-align: center; background: #eee; padding: 10px;">
+                Hero 331 (Hero + Services)
+            </h2>
+            <Hero331 />
+        </section>
+
+        <section style="margin-bottom: 100px;">
+            <h2 style="text-align: center; background: #eee; padding: 10px;">
+                SBS 332 (Side By Side)
+            </h2>
+            <SBS332 />
+        </section>
+
+        <section style="margin-bottom: 100px;">
+            <h2 style="text-align: center; background: #eee; padding: 10px;">
+                SBSR 333 (Side By Side Reverse)
+            </h2>
+            <SBSR333 />
+        </section>
+        <section style="margin-bottom: 100px;">
+            <h2 style="text-align: center; background: #eee; padding: 10px;">
+                Batch 2
+            </h2>
+
+            <h3 style="text-align: center; padding: 10px;">
+                SBS 334 (Side By Side + Reverse)
+            </h3>
+            <SBS334 />
+
+            <h3 style="text-align: center; padding: 10px;">
+                SBS 335 (Side By Side + Reverse + Triplet)
+            </h3>
+            <SBS335 />
+
+            <h3 style="text-align: center; padding: 10px;">
+                SBS 336 (Side By Side)
+            </h3>
+            <SBS336 />
+
+            <h3 style="text-align: center; padding: 10px;">
+                SBSR 337 (Side By Side Reverse)
+            </h3>
+            <SBSR337 />
+
+            <h3 style="text-align: center; padding: 10px;">
+                SBS 338 (Side By Side + Reverse)
+            </h3>
+            <SBS338 />
+        </section>
+
+        <section style="margin-bottom: 250px;">
+            <h2 style="text-align: center; background: #eee; padding: 10px;">
+                Batch 3
+            </h2>
+
+            <h3 style="text-align: center; padding: 10px;">
+                SBS 339 (Reverse Triplet)
+            </h3>
+            <SBS339 variation="standard" />
+            <div style="margin-top: 50px;">
+                <SBS339 variation="reverse" />
+            </div>
+            <div style="margin-top: 50px;">
+                <SBS339 variation="triplet" />
+            </div>
+
+            <h3 style="text-align: center; padding: 10px; margin-top: 100px;">
+                Stats 340
+            </h3>
+            <Stats340 />
+
+            <h3 style="text-align: center; padding: 10px; margin-top: 100px;">
+                Services 341 & 344 (Images vs Icons)
+            </h3>
+            <Services341_344 type="images" />
+            <div style="margin-top: 50px;">
+                <Services341_344 type="icons" />
+            </div>
+
+            <h3 style="text-align: center; padding: 10px; margin-top: 100px;">
+                SBS 411 & 412 (About)
+            </h3>
+            <SBS411_412 variation="standard" />
+            <div style="margin-top: 50px;">
+                <SBS411_412 variation="reverse" showSlant={true} />
+            </div>
+
+            <h3 style="text-align: center; padding: 10px; margin-top: 100px;">
+                Contact 1105
+            </h3>
+            <Contact1105 />
+
+            <h3 style="text-align: center; padding: 10px; margin-top: 100px;">
+                Footer 1104
+            </h3>
+            <Footer1104 />
+        </section>
+    </div>
+</BaseLayout>

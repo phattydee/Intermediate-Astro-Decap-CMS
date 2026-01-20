@@ -1,0 +1,418 @@
+---
+import { getCurrentYear } from "@js/utils";
+const currentYear = getCurrentYear();
+---
+
+<footer id="cs-footer-1104">
+    <div id="cta-1104">
+        <div class="cs-container">
+            <div class="cs-content">
+                <h2 class="cs-title">Subscribe For Newsletter</h2>
+                <form class="cs-form" name="Newsletter Form" method="post">
+                    <input
+                        class="cs-input"
+                        type="email"
+                        id="cs-email-1104"
+                        name="email"
+                        placeholder="Email Address"
+                        required
+                    />
+                    <button class="cs-button-solid cs-submit" type="submit"
+                        >Subscribe Now</button
+                    >
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="cs-container">
+        <div class="cs-logo-group">
+            <a class="cs-logo" href="/" aria-label="back to home">
+                <img
+                    src="/assets/svgs/logo-white.svg"
+                    alt="logo"
+                    width="197"
+                    height="43"
+                    loading="lazy"
+                    decoding="async"
+                />
+            </a>
+            <p class="cs-text">
+                Aenean tincidunt id mauris idology auctor. Donec at elementum
+                integer elit. In sed aliquam interdum. Integer elit In sed
+                aliquam interdum.
+            </p>
+            <div class="cs-social">
+                <a
+                    class="cs-social-link"
+                    aria-label="visit facebook profile"
+                    href=""
+                >
+                    <img
+                        class="cs-social-img"
+                        src="https://csimg.nyc3.digitaloceanspaces.com/Footer/facebook.svg"
+                        alt="facebook"
+                        width="11"
+                        height="11"
+                        loading="lazy"
+                        decoding="async"
+                    />
+                </a>
+                <a
+                    class="cs-social-link"
+                    aria-label="visit twitter profile"
+                    href=""
+                >
+                    <img
+                        class="cs-social-img"
+                        src="https://csimg.nyc3.digitaloceanspaces.com/Footer/twitter.svg"
+                        alt="twitter"
+                        width="6"
+                        height="11"
+                        loading="lazy"
+                        decoding="async"
+                    />
+                </a>
+                <a
+                    class="cs-social-link"
+                    aria-label="visit instagram profile"
+                    href=""
+                >
+                    <img
+                        class="cs-social-img"
+                        src="https://csimg.nyc3.digitaloceanspaces.com/Footer/instagram.svg"
+                        alt="instagram"
+                        width="11"
+                        height="11"
+                        loading="lazy"
+                        decoding="async"
+                    />
+                </a>
+            </div>
+        </div>
+        <!-- Quick Links -->
+        <ul class="cs-ul">
+            <li class="cs-li">
+                <span class="cs-header">Quick Links</span>
+            </li>
+            <li class="cs-li">
+                <a class="cs-link" href="/">Home</a>
+            </li>
+            <li class="cs-li">
+                <a class="cs-link" href="/about">About</a>
+            </li>
+            <li class="cs-li">
+                <a class="cs-link" href="/services">Services</a>
+            </li>
+            <li class="cs-li">
+                <a class="cs-link" href="/contact">Contact</a>
+            </li>
+        </ul>
+        <!-- Categories -->
+        <ul class="cs-ul">
+            <li class="cs-li">
+                <span class="cs-header">Categories</span>
+            </li>
+            <li class="cs-li">
+                <a class="cs-link" href="">Commercial Cleaning</a>
+            </li>
+            <li class="cs-li">
+                <a class="cs-link" href="">Office Cleaning</a>
+            </li>
+            <li class="cs-li">
+                <a class="cs-link" href="">Residential Cleaning</a>
+            </li>
+            <li class="cs-li">
+                <a class="cs-link" href="">Move In/Out Cleaning</a>
+            </li>
+        </ul>
+        <!-- Contact Info -->
+        <ul class="cs-ul">
+            <li class="cs-li">
+                <span class="cs-header">Contact Info</span>
+            </li>
+            <li class="cs-li">
+                <a class="cs-link" href="tel:555-555-5555">555-555-5555</a>
+            </li>
+            <li class="cs-li">
+                <a class="cs-link" href="mailto:info@codestitch.com"
+                    >info@codestitch.com</a
+                >
+            </li>
+            <li class="cs-li">
+                <a class="cs-link" href="">123 Main St, New York, NY 10001</a>
+            </li>
+        </ul>
+    </div>
+    <div class="cs-bottom">
+        <span class="cs-copyright">
+            © {currentYear} Codestitch Cleaners. All rights reserved.
+        </span>
+    </div>
+</footer>
+
+<style lang="less">
+    /*-- -------------------------- -->
+<---          Footer            -->
+<--- -------------------------- -*/
+
+    /* Mobile - 360px */
+    @media only screen and (min-width: 0rem) {
+        #cs-footer-1104 {
+            padding: (140/16rem) 0 (20/16rem) 0;
+            background-color: #1a1a1a;
+            position: relative;
+            z-index: 1;
+
+            #cta-1104 {
+                width: 94%;
+                max-width: (1280/16rem);
+                margin: auto;
+                /* 40px - 100px */
+                padding: clamp(2.5rem, 8vw, 6.25rem) (32/16rem);
+                background-color: var(--primary);
+                border-radius: (16/16rem);
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                position: absolute;
+                top: 0;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                z-index: 10;
+                box-sizing: border-box;
+
+                .cs-content {
+                    width: 100%;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    gap: (32/16rem);
+                }
+
+                .cs-title {
+                    /* 25px - 39px */
+                    font-size: clamp(1.5625rem, 3.9vw, 2.4375rem);
+                    font-weight: 900;
+                    line-height: 1.2em;
+                    margin: 0;
+                    color: #fff;
+                    text-align: center;
+                }
+
+                .cs-form {
+                    width: 100%;
+                    max-width: (630/16rem);
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    gap: (12/16rem);
+                }
+
+                .cs-input {
+                    width: 100%;
+                    height: (56/16rem);
+                    padding: 0 (24/16rem);
+                    background-color: #fff;
+                    border: none;
+                    border-radius: (8/16rem);
+                    font-size: (16/16rem);
+                    color: #1a1a1a;
+                    box-sizing: border-box;
+
+                    &::placeholder {
+                        color: #767676;
+                    }
+                }
+
+                .cs-submit {
+                    width: 100%;
+                    height: (56/16rem);
+                    background-color: #1a1a1a;
+                    color: #fff;
+                    font-size: (16/16rem);
+                    font-weight: 700;
+                    border: none;
+                    border-radius: (8/16rem);
+                    cursor: pointer;
+                    transition: background-color 0.3s;
+
+                    &:hover {
+                        background-color: #000;
+                    }
+                }
+            }
+
+            .cs-container {
+                width: 94%;
+                max-width: (1280/16rem);
+                margin: auto;
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: (40/16rem);
+            }
+
+            .cs-logo-group {
+                width: 100%;
+                max-width: (400/16rem);
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: (24/16rem);
+            }
+
+            .cs-logo {
+                width: (197/16rem);
+                height: auto;
+                display: block;
+                img {
+                    width: 100%;
+                    height: auto;
+                }
+            }
+
+            .cs-text {
+                font-size: (16/16rem);
+                line-height: 1.5em;
+                margin: 0;
+                color: #bababa;
+            }
+
+            .cs-social {
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+                gap: (12/16rem);
+            }
+
+            .cs-social-link {
+                width: (32/16rem);
+                height: (32/16rem);
+                background-color: #484848;
+                border-radius: 50%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                transition: background-color 0.3s;
+
+                &:hover {
+                    background-color: var(--primary);
+                }
+            }
+
+            .cs-ul {
+                width: 100%;
+                margin: 0;
+                padding: 0;
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: (12/16rem);
+            }
+
+            .cs-li {
+                list-style: none;
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .cs-header {
+                font-size: (20/16rem);
+                font-weight: 700;
+                line-height: 1.2em;
+                margin-bottom: (8/16rem);
+                color: #fff;
+                display: block;
+            }
+
+            .cs-link {
+                font-size: (16/16rem);
+                text-decoration: none;
+                line-height: 1.5em;
+                color: #bababa;
+                transition: color 0.3s;
+
+                &:hover {
+                    color: var(--primary);
+                }
+            }
+
+            .cs-bottom {
+                width: 94%;
+                max-width: (1280/16rem);
+                margin: (40/16rem) auto 0;
+                padding-top: (32/16rem);
+                border-top: 1px solid #484848;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .cs-copyright {
+                font-size: (14/16rem);
+                color: #bababa;
+                text-align: center;
+            }
+        }
+    }
+
+    /* Tablet - 768px */
+    @media only screen and (min-width: 48rem) {
+        #cs-footer-1104 {
+            #cta-1104 {
+                flex-direction: row;
+                justify-content: space-between;
+                padding: (40/16rem) (80/16rem);
+
+                .cs-content {
+                    flex-direction: row;
+                    justify-content: space-between;
+                    align-items: center;
+                }
+
+                .cs-title {
+                    text-align: left;
+                    width: 40%;
+                }
+
+                .cs-form {
+                    flex-direction: row;
+                    width: 55%;
+                }
+
+                .cs-submit {
+                    width: (200/16rem);
+                }
+            }
+
+            .cs-container {
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: space-between;
+            }
+
+            .cs-logo-group {
+                width: 100%;
+                max-width: 100%;
+                margin-bottom: (24/16rem);
+            }
+
+            .cs-ul {
+                width: 30%;
+            }
+        }
+    }
+
+    /* Desktop - 1024px */
+    @media only screen and (min-width: 64rem) {
+        #cs-footer-1104 {
+            .cs-logo-group {
+                width: 30%;
+            }
+            .cs-ul {
+                width: 15%;
+            }
+        }
+    }
+</style>

@@ -1,0 +1,332 @@
+---
+interface Props {
+    type?: "images" | "icons";
+}
+
+const { type = "images" } = Astro.props;
+
+const services = [
+    {
+        title: "Door Cleaning",
+        text: "Decision Are A Professional Attorney & Lawyers Services Provider Institutions. Suitable For Law Firm, Injury Law, Traffic Ticket Attorney, Legacy And More.",
+        img: "https://csimg.nyc3.digitaloceanspaces.com/Services/cleaner.jpg",
+        icon: "https://csimg.nyc3.digitaloceanspaces.com/Services/doorway.svg",
+        link: "",
+    },
+    {
+        title: "Sofa Cleaning",
+        text: "Decision Are A Professional Attorney & Lawyers Services Provider Institutions. Suitable For Law Firm, Injury Law, Traffic Ticket Attorney, Legacy And More.",
+        img: "https://csimg.nyc3.digitaloceanspaces.com/Services/cleaner2.jpg",
+        icon: "https://csimg.nyc3.digitaloceanspaces.com/Services/couch.svg",
+        link: "",
+    },
+    {
+        title: "Window Cleaning",
+        text: "Decision Are A Professional Attorney & Lawyers Services Provider Institutions. Suitable For Law Firm, Injury Law, Traffic Ticket Attorney, Legacy And More.",
+        img: "https://csimg.nyc3.digitaloceanspaces.com/Services/cleaner3.jpg",
+        icon: "https://csimg.nyc3.digitaloceanspaces.com/Services/window.svg",
+        link: "",
+    },
+];
+---
+
+<section id={type === "images" ? "services-341" : "services-344"}>
+    <div class="cs-container">
+        <div class="cs-content">
+            <span class="cs-topper">Our Services</span>
+            <h2 class="cs-title">
+                Best Cleaning Services For Your Successful Life
+            </h2>
+            <p class="cs-text">
+                Decision Are A Professional Attorney & Lawyers Services Provider
+                Institutions. Suitable For Law Firm, Injury Law, Traffic Ticket
+                Attorney, Legacy And More. Lorem Ipsum is simply dummy text of
+                the printing and typesetting industry simply.
+            </p>
+        </div>
+        <ul class="cs-card-group">
+            {
+                services.map((service) => (
+                    <li class="cs-item">
+                        <a href={service.link} class="cs-link">
+                            <picture class="cs-picture">
+                                {type === "images" ? (
+                                    <img
+                                        loading="lazy"
+                                        decoding="async"
+                                        src={service.img}
+                                        alt={service.title}
+                                        width="413"
+                                        height="240"
+                                        aria-hidden="true"
+                                    />
+                                ) : (
+                                    <img
+                                        class="cs-icon"
+                                        src={service.icon}
+                                        loading="lazy"
+                                        decoding="async"
+                                        alt="icon"
+                                        width="32"
+                                        height="32"
+                                        aria-hidden="true"
+                                    />
+                                )}
+                            </picture>
+                            <h3 class="cs-h3">{service.title}</h3>
+                            <p class="cs-item-text">{service.text}</p>
+                        </a>
+                    </li>
+                ))
+            }
+        </ul>
+        <a href="" class="cs-button-solid">View All Services</a>
+    </div>
+</section>
+
+<style lang="less">
+    /*-- -------------------------- -->
+<---          Services          -->
+<--- -------------------------- -*/
+
+    /* Mobile - 360px */
+    @media only screen and (min-width: 0rem) {
+        #services-341,
+        #services-344 {
+            padding: var(--sectionPadding);
+
+            .cs-container {
+                width: 100%;
+                max-width: (1280/16rem);
+                margin: auto;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                /* 48px - 64px */
+                gap: clamp(3rem, 6vw, 4rem);
+            }
+
+            .cs-content {
+                /* set text align to left if content needs to be left aligned */
+                text-align: center;
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                /* aligns address to the left on 1024px */
+                align-items: center;
+            }
+
+            .cs-card-group {
+                width: 100%;
+                margin: 0;
+                padding: 0;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+                /* 16px - 20px */
+                gap: clamp(1rem, 1.5vw, 1.25rem);
+            }
+
+            .cs-item {
+                list-style: none;
+                width: 100%;
+                max-width: (413/16rem);
+                background-color: #f7f7f7;
+                /* 16px - 32px bottom & sides, 16px - 24px top */
+                padding: clamp(1rem, 2vw, 1.5rem) clamp(1rem, 2vw, 2rem)
+                    clamp(1rem, 2vw, 2rem);
+                border-radius: (16/16rem);
+                box-sizing: border-box;
+                transition:
+                    background-color 0.3s,
+                    transform 0.3s,
+                    box-shadow 0.3s;
+
+                &:hover {
+                    background-color: #fff;
+                    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+                    transform: translateY(-0.4375rem);
+
+                    .cs-picture {
+                        img {
+                            transform: scale(1.1);
+                        }
+                    }
+                    .cs-h3 {
+                        color: var(--primary);
+                    }
+                }
+            }
+
+            .cs-link {
+                text-decoration: none;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+            }
+
+            .cs-picture {
+                display: block;
+                margin-bottom: (24/16rem);
+                /* clips the scale of the img */
+                overflow: hidden;
+
+                img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    display: block;
+                    transition: transform 0.6s;
+                }
+            }
+
+            .cs-h3 {
+                /* 20px - 25px */
+                font-size: clamp(1.25rem, 3vw, 1.5625rem);
+                line-height: 1.2em;
+                margin: 0 0 (12/16rem) 0;
+                color: var(--headerColor);
+                text-align: center;
+                transition: color 0.3s;
+            }
+
+            .cs-item-text {
+                /* 14px - 16px */
+                font-size: clamp(0.875rem, 1.5vw, 1rem);
+                line-height: 1.5em;
+                margin: 0;
+                color: var(--bodyTextColor);
+                text-align: center;
+            }
+
+            .cs-button-solid {
+                font-size: (16/16rem);
+                /* 46px - 56px */
+                line-height: clamp(2.875rem, 5.5vw, 3.5rem);
+                text-decoration: none;
+                font-weight: 700;
+                text-align: center;
+                margin: 0;
+                color: #fff;
+                min-width: (150/16rem);
+                padding: 0 (24/16rem);
+                background-color: var(--primary);
+                border-radius: (8/16rem);
+                display: inline-block;
+                position: relative;
+                z-index: 1;
+                /* prevents padding from adding to the width */
+                box-sizing: border-box;
+
+                &:before {
+                    content: "";
+                    position: absolute;
+                    height: 100%;
+                    width: 0%;
+                    background: #000;
+                    opacity: 1;
+                    top: 0;
+                    left: 0;
+                    z-index: -1;
+                    border-radius: (4/16rem);
+                    transition: width 0.3s;
+                }
+
+                &:hover {
+                    &:before {
+                        width: 100%;
+                    }
+                }
+            }
+        }
+
+        /* Variation Specific Styles */
+        #services-341 {
+            .cs-picture {
+                width: 100%;
+                /* 200px - 240px */
+                height: clamp(12.5rem, 25vw, 15rem);
+                border-radius: (8/16rem);
+            }
+        }
+
+        #services-344 {
+            .cs-picture {
+                width: (80/16rem);
+                height: (80/16rem);
+                background-color: #fff5e6;
+                border-radius: 50%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                .cs-icon {
+                    width: (32/16rem);
+                    height: auto;
+                }
+            }
+            .cs-item:hover {
+                .cs-picture {
+                    background-color: #fff;
+                }
+            }
+        }
+    }
+
+    /* Tablet - 768px */
+    @media only screen and (min-width: 48rem) {
+        #services-341,
+        #services-344 {
+            .cs-card-group {
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .cs-item {
+                width: 48%;
+            }
+        }
+    }
+
+    /* Desktop - 1024px */
+    @media only screen and (min-width: 64rem) {
+        #services-341,
+        #services-344 {
+            .cs-item {
+                /* we do this so it's a 3 column layout */
+                width: clamp(23.5%, 30.5vw, 32.2%);
+            }
+        }
+    }
+
+    /* Dark Mode */
+    @media only screen and (min-width: 0rem) {
+        body.dark-mode {
+            #services-341,
+            #services-344 {
+                .cs-topper {
+                    color: var(--primaryLight);
+                }
+                .cs-title,
+                .cs-item-text {
+                    color: var(--bodyTextColorWhite);
+                }
+                .cs-h3 {
+                    color: var(--bodyTextColorWhite);
+                }
+                .cs-item {
+                    background-color: var(--medium);
+                    &:hover {
+                        background-color: var(--accent);
+                    }
+                }
+                #services-344 .cs-picture {
+                    background-color: var(--dark);
+                }
+            }
+        }
+    }
+</style>

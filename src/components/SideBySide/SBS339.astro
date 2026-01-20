@@ -1,0 +1,385 @@
+---
+interface Props {
+    variation?: "standard" | "reverse" | "triplet";
+}
+
+const { variation = "standard" } = Astro.props;
+---
+
+<section
+    id={variation === "standard"
+        ? "RTsbs-339"
+        : variation === "reverse"
+          ? "RTsbsr-339"
+          : "RTsbst-339"}
+>
+    <div class="cs-container">
+        <!-- Left Image Section -->
+        <div class="cs-image-group">
+            <!--Big Image-->
+            <picture class="cs-picture cs-picture1">
+                <source
+                    media="(max-width: 600px)"
+                    srcset="https://csimg.nyc3.digitaloceanspaces.com/SideBySide/cleaner3-m.jpg"
+                />
+                <source
+                    media="(min-width: 601px)"
+                    srcset="https://csimg.nyc3.digitaloceanspaces.com/SideBySide/cleaner3.jpg"
+                />
+                <img
+                    loading="lazy"
+                    decoding="async"
+                    src="https://csimg.nyc3.digitaloceanspaces.com/SideBySide/cleaner3.jpg"
+                    alt="cleaning supplies"
+                    width="672"
+                    height="672"
+                    aria-hidden="true"
+                />
+            </picture>
+            <!--Medium Image-->
+            <picture class="cs-picture cs-picture2">
+                <source
+                    media="(max-width: 600px)"
+                    srcset="https://csimg.nyc3.digitaloceanspaces.com/SideBySide/cleaning2-m.jpg"
+                />
+                <source
+                    media="(min-width: 601px)"
+                    srcset="https://csimg.nyc3.digitaloceanspaces.com/SideBySide/cleaning2.jpg"
+                />
+                <img
+                    loading="lazy"
+                    decoding="async"
+                    src="https://csimg.nyc3.digitaloceanspaces.com/SideBySide/cleaning2.jpg"
+                    alt="cleaning supplies"
+                    width="300"
+                    height="300"
+                    aria-hidden="true"
+                />
+            </picture>
+            <!--Small Image-->
+            <picture class="cs-picture cs-picture3">
+                <source
+                    media="(max-width: 600px)"
+                    srcset="https://csimg.nyc3.digitaloceanspaces.com/SideBySide/cleaning1-m.jpg"
+                />
+                <source
+                    media="(min-width: 601px)"
+                    srcset="https://csimg.nyc3.digitaloceanspaces.com/SideBySide/cleaning1.jpg"
+                />
+                <img
+                    loading="lazy"
+                    decoding="async"
+                    src="https://csimg.nyc3.digitaloceanspaces.com/SideBySide/cleaning1.jpg"
+                    alt="cleaner"
+                    width="200"
+                    height="200"
+                    aria-hidden="true"
+                />
+            </picture>
+        </div>
+        <!-- Right Content Section-->
+        <div class="cs-content">
+            <span class="cs-topper">About Us</span>
+            <h2 class="cs-title">
+                Preserving A Good Relation Is the Key of Success
+            </h2>
+            <p class="cs-text">
+                Decision Are A Professional Attorney & Lawyers Services Provider
+                Institutions. Suitable For Law Firm, Injury Law, Traffic Ticket
+                Attorney, Legacy And More. Lorem Ipsum is simply dummy text of
+                the printing and typesetting industry simply.
+            </p>
+            <ul class="cs-ul">
+                <li class="cs-li">Praesent feugiat sem mattis.</li>
+                <li class="cs-li">Praesent feugiat sem mattis.</li>
+                <li class="cs-li">Praesent feugiat sem mattis.</li>
+                <li class="cs-li">Praesent feugiat sem mattis.</li>
+            </ul>
+            <a
+                class="cs-button-solid"
+                aria-label="learn more about our programs"
+                href="">Learn More</a
+            >
+        </div>
+    </div>
+</section>
+
+<style lang="less">
+    /*-- -------------------------- -->
+<---       Side By Side         -->
+<--- -------------------------- -*/
+
+    /* Mobile - 360px */
+    @media only screen and (min-width: 0rem) {
+        #RTsbs-339,
+        #RTsbsr-339,
+        #RTsbst-339 {
+            padding: var(--sectionPadding);
+            overflow: hidden;
+        }
+        #RTsbs-339 .cs-container,
+        #RTsbsr-339 .cs-container,
+        #RTsbst-339 .cs-container {
+            width: 100%;
+            max-width: (550/16rem);
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            /* 48px - 64px */
+            gap: clamp(3rem, 6vw, 4rem);
+        }
+        #RTsbs-339 .cs-content,
+        #RTsbsr-339 .cs-content,
+        #RTsbst-339 .cs-content {
+            /* set text align to left if content needs to be left aligned */
+            text-align: left;
+            width: 100%;
+            max-width: (522/16rem);
+            display: flex;
+            flex-direction: column;
+            /* aligns address to the left on 1024px */
+            align-items: flex-start;
+        }
+
+        #RTsbs-339 .cs-text,
+        #RTsbsr-339 .cs-text,
+        #RTsbst-339 .cs-text {
+            margin-bottom: (16/16rem);
+            &:last-of-type {
+                margin-bottom: (32/16rem);
+            }
+        }
+        #RTsbs-339 .cs-ul,
+        #RTsbsr-339 .cs-ul,
+        #RTsbst-339 .cs-ul {
+            width: 100%;
+            margin: 0 0 (32/16rem) 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: (12/16rem);
+        }
+        #RTsbs-339 .cs-li,
+        #RTsbsr-339 .cs-li,
+        #RTsbst-339 .cs-li {
+            /* 14px - 16px */
+            font-size: clamp(0.875rem, 1.5vw, 1rem);
+            list-style: none;
+            line-height: 1.5em;
+            width: 100%;
+            color: var(--bodyTextColor);
+            display: flex;
+            justify-content: flex-start;
+            /* push icon to the top if the text goes to two lines */
+            align-items: flex-start;
+            gap: (12/16rem);
+            position: relative;
+            &:before {
+                /* bullet image */
+                content: "";
+                width: (16/16rem);
+                height: (16/16rem);
+                background: url("https://csimg.nyc3.digitaloceanspaces.com/SideBySide/check-gold.svg");
+                background-size: contain;
+                background-position: center;
+                background-repeat: no-repeat;
+                display: block;
+                flex: none;
+                position: relative;
+                top: (4/16rem);
+            }
+        }
+        #RTsbs-339 .cs-image-group,
+        #RTsbsr-339 .cs-image-group,
+        #RTsbst-339 .cs-image-group {
+            /* scales the whole group based on the font size of the container and not the 100% of the screen width */
+            font-size: ~"min(2.3vw, .75em)";
+            width: (643/16em);
+            height: (632/16em);
+            display: block;
+            position: relative;
+            z-index: 1;
+            &:before {
+                /* accent shape */
+                content: "";
+                width: (556/16em);
+                height: (494/16em);
+                background: #e8e8e8;
+                opacity: 1;
+                position: absolute;
+                display: block;
+                bottom: 0;
+                left: 0;
+                z-index: -1;
+            }
+        }
+        #RTsbs-339 .cs-picture,
+        #RTsbsr-339 .cs-picture,
+        #RTsbst-339 .cs-picture {
+            border: (12/16em) solid #fff;
+            background-color: #fff;
+            display: block;
+            position: absolute;
+            /* clips img corners */
+            overflow: hidden;
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                position: absolute;
+                top: 0;
+                left: 0;
+            }
+        }
+        #RTsbs-339 .cs-picture1,
+        #RTsbsr-339 .cs-picture1,
+        #RTsbst-339 .cs-picture1 {
+            width: (522/16em);
+            height: (522/16em);
+            top: 0;
+            right: 0;
+        }
+        #RTsbs-339 .cs-picture2,
+        #RTsbsr-339 .cs-picture2,
+        #RTsbst-339 .cs-picture2 {
+            width: (230/16em);
+            height: (230/16em);
+            bottom: 0;
+            left: (80/16em);
+        }
+        #RTsbs-339 .cs-picture3,
+        #RTsbsr-339 .cs-picture3,
+        #RTsbst-339 .cs-picture3 {
+            width: (154/16em);
+            height: (154/16em);
+            bottom: (107/16em);
+            left: 0;
+        }
+    }
+
+    /* Desktop - 1024px */
+    @media only screen and (min-width: 64rem) {
+        #RTsbs-339 .cs-container,
+        #RTsbsr-339 .cs-container,
+        #RTsbst-339 .cs-container {
+            max-width: (1280/16rem);
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+        }
+        #RTsbs-339 .cs-image-group,
+        #RTsbsr-339 .cs-image-group,
+        #RTsbst-339 .cs-image-group {
+            font-size: ~"min(1.2vw, 1em)";
+            flex: none;
+        }
+        #RTsbs-339 .cs-content,
+        #RTsbsr-339 .cs-content,
+        #RTsbst-339 .cs-content {
+            width: 45%;
+            max-width: (522/16rem);
+        }
+    }
+
+    /* Dark Mode */
+    @media only screen and (min-width: 0rem) {
+        body.dark-mode {
+            #RTsbs-339,
+            #RTsbsr-339,
+            #RTsbst-339 {
+                .cs-topper {
+                    color: var(--primaryLight);
+                }
+                .cs-title,
+                .cs-text,
+                .cs-li {
+                    color: var(--bodyTextColorWhite);
+                }
+                .cs-image-group {
+                    &:before {
+                        background-color: var(--accent);
+                    }
+                }
+                .cs-picture {
+                    border-color: var(--dark);
+                    background-color: var(--dark);
+                }
+            }
+        }
+    }
+
+    /*-- -------------------------- -->
+<---   Side By Side Reverse     -->
+<--- -------------------------- -*/
+
+    /* Mobile - 360px */
+    @media only screen and (min-width: 0rem) {
+        #RTsbsr-339 {
+            background-color: #f7f7f7;
+        }
+        #RTsbsr-339 .cs-image-group:before {
+            background-color: var(--primaryLight);
+            left: auto;
+            right: 0;
+        }
+        #RTsbsr-339 .cs-picture1 {
+            left: 0;
+            right: auto;
+        }
+        #RTsbsr-339 .cs-picture2 {
+            left: auto;
+            right: (80/16em);
+        }
+        #RTsbsr-339 .cs-picture3 {
+            left: auto;
+            right: 0;
+        }
+    }
+
+    /* Desktop - 1024px */
+    @media only screen and (min-width: 64rem) {
+        #RTsbsr-339 .cs-image-group {
+            order: 2;
+        }
+    }
+
+    /* Dark Mode */
+    @media only screen and (min-width: 0rem) {
+        body.dark-mode {
+            #RTsbsr-339 {
+                background-color: rgba(0, 0, 0, 0.2);
+                .cs-image-group {
+                    &:before {
+                        background-color: var(--accent);
+                    }
+                }
+            }
+        }
+    }
+
+    /*-- -------------------------- -->
+<---   Side By Side Triplet     -->
+<--- -------------------------- -*/
+
+    /* Mobile - 360px */
+    @media only screen and (min-width: 0rem) {
+        #RTsbst-339 .cs-image-group:before {
+            background-color: #ffba43;
+        }
+    }
+
+    /* Dark Mode */
+    @media only screen and (min-width: 0rem) {
+        body.dark-mode {
+            #RTsbst-339 {
+                .cs-image-group {
+                    &:before {
+                        background-color: var(--accent);
+                    }
+                }
+            }
+        }
+    }
+</style>

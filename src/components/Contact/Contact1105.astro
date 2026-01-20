@@ -1,0 +1,336 @@
+---
+
+---
+
+<section id="contact-1105">
+    <div class="cs-container">
+        <div class="cs-content">
+            <span class="cs-topper">Contact Us</span>
+            <h2 class="cs-title">Make An Appointment</h2>
+            <form
+                class="cs-form"
+                id="cs-form-1105"
+                name="Contact Form"
+                method="post"
+            >
+                <label class="cs-label">
+                    Name
+                    <input
+                        class="cs-input"
+                        required
+                        type="text"
+                        id="name-1105"
+                        name="name"
+                        placeholder="Name"
+                    />
+                </label>
+                <label class="cs-label cs-email">
+                    Email
+                    <input
+                        class="cs-input"
+                        required
+                        type="email"
+                        id="email-1105"
+                        name="email"
+                        placeholder="Email"
+                    />
+                </label>
+                <label class="cs-label cs-phone">
+                    Phone
+                    <input
+                        class="cs-input"
+                        required
+                        type="tel"
+                        id="phone-1105"
+                        name="phone"
+                        placeholder="Phone"
+                    />
+                </label>
+                <label class="cs-label">
+                    Message
+                    <textarea
+                        class="cs-input cs-textarea"
+                        required
+                        name="message"
+                        id="message-1105"
+                        placeholder="Write message..."></textarea>
+                </label>
+                <button class="cs-button-solid cs-submit" type="submit"
+                    >Make an Appointment</button
+                >
+            </form>
+        </div>
+        <ul class="cs-ul">
+            <li class="cs-li">
+                <picture class="cs-icon-wrapper">
+                    <img
+                        src="https://csimg.nyc3.digitaloceanspaces.com/Contact-Page/phone-golden.svg"
+                        alt="phone icon"
+                        class="cs-icon"
+                        width="40"
+                        height="40"
+                        loading="lazy"
+                        decoding="async"
+                    />
+                </picture>
+                <div class="cs-flex-group">
+                    <span class="cs-header">Phone</span>
+                    <a href="tel:555-497-4833" class="cs-link"
+                        >+1 (555) 497-4833</a
+                    >
+                </div>
+            </li>
+            <li class="cs-li">
+                <picture class="cs-icon-wrapper">
+                    <img
+                        src="https://csimg.nyc3.digitaloceanspaces.com/Contact-Page/mail-golden.svg"
+                        alt="mail icon"
+                        class="cs-icon"
+                        width="40"
+                        height="40"
+                        loading="lazy"
+                        decoding="async"
+                    />
+                </picture>
+                <div class="cs-flex-group">
+                    <span class="cs-header">Email</span>
+                    <a href="mailto:Helpdesk@gmail.com" class="cs-link"
+                        >Helpdesk@gmail.com</a
+                    >
+                </div>
+            </li>
+            <li class="cs-li">
+                <picture class="cs-icon-wrapper">
+                    <img
+                        src="https://csimg.nyc3.digitaloceanspaces.com/Contact-Page/pin-golden.svg"
+                        alt="address icon"
+                        class="cs-icon"
+                        width="40"
+                        height="40"
+                        loading="lazy"
+                        decoding="async"
+                    />
+                </picture>
+                <div class="cs-flex-group">
+                    <span class="cs-header">Address</span>
+                    <a href="" class="cs-link">123 Avenue, El Paso, Texas</a>
+                </div>
+            </li>
+        </ul>
+    </div>
+</section>
+
+<style lang="less">
+    /*-- -------------------------- -->
+<---          Contact           -->
+<--- -------------------------- -*/
+
+    /* Mobile - 360px */
+    @media only screen and (min-width: 0rem) {
+        #contact-1105 {
+            padding: var(--sectionPadding);
+            position: relative;
+            z-index: 1;
+
+            .cs-container {
+                width: 100%;
+                max-width: (1280/16rem);
+                margin: auto;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                /* 48px - 80px */
+                gap: clamp(3rem, 6vw, 5rem);
+            }
+
+            .cs-content {
+                /* set text align to left if content needs to be left aligned */
+                text-align: left;
+                width: 100%;
+                max-width: (584/16rem);
+                display: flex;
+                flex-direction: column;
+                /* aligns address to the left on 1024px */
+                align-items: flex-start;
+            }
+
+            .cs-title {
+                margin-bottom: (32/16rem);
+            }
+
+            .cs-form {
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                gap: (12/16rem);
+            }
+
+            .cs-label {
+                font-size: (16/16rem);
+                line-height: 1.5em;
+                font-weight: 700;
+                color: var(--headerColor);
+                display: flex;
+                flex-direction: column;
+                gap: (12/16rem);
+            }
+
+            .cs-input {
+                font-size: (16/16rem);
+                width: 100%;
+                height: (56/16rem);
+                padding: 0 (24/16rem);
+                background-color: #f7f7f7;
+                border: none;
+                border-radius: (8/16rem);
+                color: var(--headerColor);
+                box-sizing: border-box;
+
+                &::placeholder {
+                    color: #767676;
+                }
+            }
+
+            .cs-textarea {
+                min-height: (120/16rem);
+                padding-top: (24/16rem);
+                font-family: inherit;
+            }
+
+            .cs-submit {
+                width: 100%;
+                height: (56/16rem);
+                margin-top: (12/16rem);
+                border-radius: (8/16rem);
+                cursor: pointer;
+            }
+
+            .cs-ul {
+                width: 100%;
+                max-width: (584/16rem);
+                margin: 0;
+                padding: 0;
+                display: flex;
+                flex-direction: column;
+                gap: (32/16rem);
+            }
+
+            .cs-li {
+                list-style: none;
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+                gap: (20/16rem);
+            }
+
+            .cs-icon-wrapper {
+                width: (80/16rem);
+                height: (80/16rem);
+                background-color: #f7f7f7;
+                border-radius: 50%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex: none;
+            }
+
+            .cs-icon {
+                width: (40/16rem);
+                height: auto;
+            }
+
+            .cs-flex-group {
+                display: flex;
+                flex-direction: column;
+                gap: (4/16rem);
+            }
+
+            .cs-header {
+                font-size: (20/16rem);
+                font-weight: 700;
+                line-height: 1.2em;
+                color: var(--headerColor);
+            }
+
+            .cs-link {
+                font-size: (16/16rem);
+                text-decoration: none;
+                line-height: 1.5em;
+                color: var(--bodyTextColor);
+                transition: color 0.3s;
+
+                &:hover {
+                    color: var(--primary);
+                }
+            }
+        }
+    }
+
+    /* Desktop - 1024px */
+    @media only screen and (min-width: 64rem) {
+        #contact-1105 {
+            .cs-container {
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: flex-start;
+            }
+
+            .cs-form {
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: space-between;
+            }
+
+            .cs-label {
+                width: 48%;
+                &.cs-textarea-label {
+                    width: 100%;
+                }
+            }
+
+            .cs-email,
+            .cs-phone {
+                width: 48%;
+            }
+
+            .cs-label:nth-last-of-type(2) {
+                width: 100%;
+            }
+
+            .cs-ul {
+                width: (400/16rem);
+            }
+        }
+    }
+
+    /* Dark Mode */
+    @media only screen and (min-width: 0rem) {
+        body.dark-mode {
+            #contact-1105 {
+                .cs-topper {
+                    color: var(--primaryLight);
+                }
+                .cs-title,
+                .cs-header {
+                    color: var(--bodyTextColorWhite);
+                }
+                .cs-text,
+                .cs-item-text,
+                .cs-link,
+                .cs-label {
+                    color: var(--bodyTextColorWhite);
+                }
+                .cs-input {
+                    background-color: var(--medium);
+                    color: #fff;
+                    &::placeholder {
+                        color: rgba(255, 255, 255, 0.5);
+                    }
+                }
+                .cs-icon-wrapper {
+                    background-color: var(--medium);
+                }
+            }
+        }
+    }
+</style>
