@@ -1,0 +1,385 @@
+<section id="faq-352">
+    <div class="cs-container">
+        <div class="cs-left">
+            <picture class="cs-picture cs-picture1" aria-hidden="true">
+                <source media="(max-width: 600px)" srcset="https://csimg.nyc3.digitaloceanspaces.com/SideBySide/cleaning1.jpg">
+                <source media="(min-width: 601px)" srcset="https://csimg.nyc3.digitaloceanspaces.com/SideBySide/cleaning1.jpg">
+                <img loading="lazy" decoding="async" src="https://csimg.nyc3.digitaloceanspaces.com/SideBySide/cleaning1.jpg" alt="cleaning supplies" width="672" height="672">
+            </picture>
+            <picture class="cs-picture cs-picture2" aria-hidden="true">
+                <source media="(max-width: 600px)" srcset="https://csimg.nyc3.digitaloceanspaces.com/SideBySide/cleaner3-m.jpg">
+                <source media="(min-width: 601px)" srcset="https://csimg.nyc3.digitaloceanspaces.com/SideBySide/cleaner3.jpg">
+                <img loading="lazy" decoding="async" src="https://csimg.nyc3.digitaloceanspaces.com/SideBySide/cleaner3.jpg" alt="cleaning lady" width="300" height="300">
+            </picture>
+            <picture class="cs-picture cs-picture3" aria-hidden="true">
+                <source media="(max-width: 600px)" srcset="https://csimg.nyc3.digitaloceanspaces.com/SideBySide/cleaning2-m.jpg">
+                <source media="(min-width: 601px)" srcset="https://csimg.nyc3.digitaloceanspaces.com/SideBySide/cleaning2.jpg">
+                <img loading="lazy" decoding="async" src="https://csimg.nyc3.digitaloceanspaces.com/SideBySide/cleaning2.jpg" alt="cleaner" width="200" height="200">
+            </picture>
+            <picture class="cs-picture cs-picture4" aria-hidden="true">
+                <source media="(max-width: 600px)" srcset="https://csimg.nyc3.digitaloceanspaces.com/FAQ/cleaner.jpg">
+                <source media="(min-width: 601px)" srcset="https://csimg.nyc3.digitaloceanspaces.com/FAQ/cleaner.jpg">
+                <img loading="lazy" decoding="async" src="https://csimg.nyc3.digitaloceanspaces.com/FAQ/cleaner.jpg" alt="cleaner" width="200" height="200">
+            </picture>
+            <div class="cs-blue" aria-hidden="true"></div>
+        </div>
+        <div class="cs-content">
+            <span class="cs-topper">Asked questions</span>
+            <h2 class="cs-title">Frequently Asked Questions</h2>
+            <ul class="cs-faq-group">
+                <li class="cs-faq-item active">
+                    <button class="cs-button">
+                        <span class="cs-button-text">
+                            How much are house cleaning services?
+                        </span>
+                    </button>
+                    <p class="cs-item-p">
+                        Some cleaning plans require a minimum commitment term. Cancelling your plan before the minimum term is complete will result in a $99 fee. If you want to learn more information about how to cancel, please inbox us.
+                    </p>
+                </li>
+                <li class="cs-faq-item">
+                    <button class="cs-button">
+                        <span class="cs-button-text">
+                            What is your plan cancellation policy?
+                        </span>
+                    </button>
+                    <p class="cs-item-p">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sit convallis nunc neque, bibendum pulvinar vitae commodo velit. Proin diam tortor sed malesuada nunc, habitant. Dignissim ipsum porta enim, magna urna, quam. 
+                    </p>
+                </li>
+                <li class="cs-faq-item">
+                    <button class="cs-button">
+                        <span class="cs-button-text">
+                            How long should a house cleaning take?
+                        </span>
+                    </button>
+                    <p class="cs-item-p">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sit convallis nunc neque, bibendum pulvinar vitae commodo velit. Proin diam tortor sed malesuada nunc, habitant. Dignissim ipsum porta enim, magna urna, quam. 
+                    </p>
+                </li>
+                <li class="cs-faq-item">
+                    <button class="cs-button">
+                        <span class="cs-button-text">
+                            How much are house cleaning services?
+                        </span>
+                    </button>
+                    <p class="cs-item-p">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sit convallis nunc neque, bibendum pulvinar vitae commodo velit. Proin diam tortor sed malesuada nunc, habitant. Dignissim ipsum porta enim, magna urna, quam. 
+                    </p>
+                </li>
+                <li class="cs-faq-item">
+                    <button class="cs-button">
+                        <span class="cs-button-text">
+                            Can cleanings be scheduled?
+                        </span>
+                    </button>
+                    <p class="cs-item-p">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sit convallis nunc neque, bibendum pulvinar vitae commodo velit. Proin diam tortor sed malesuada nunc, habitant. Dignissim ipsum porta enim, magna urna, quam. 
+                    </p>
+                </li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const faqItems = document.querySelectorAll('#faq-352 .cs-faq-item');
+    
+    faqItems.forEach(item => {
+        const button = item.querySelector('.cs-button');
+        
+        button.addEventListener('click', function() {
+            const isActive = item.classList.contains('active');
+            
+            faqItems.forEach(faq => {
+                faq.classList.remove('active');
+            });
+            
+            if (!isActive) {
+                item.classList.add('active');
+            }
+        });
+    });
+});
+</script>
+
+<style lang="less">
+@media only screen and (min-width: 0rem) {
+    #faq-352 {
+        padding: var(--sectionPadding);
+        background: #f7f7f7;
+    }
+    #faq-352 .cs-container {
+        width: 100%;
+        max-width: 34.375rem;
+        margin: auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: clamp(2.5rem, 5vw, 3rem);
+    }
+    #faq-352 .cs-content {
+        text-align: left;
+        max-width: 32.625rem;
+    }
+    #faq-352 .cs-title {
+        margin: 0 auto clamp(1.5rem, 4vw, 3rem);
+    }
+    #faq-352 .cs-faq-group {
+        padding: 0;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+    #faq-352 .cs-faq-item {
+        list-style: none;
+        width: 100%;
+        border-bottom: 1px solid #e8e8e8;
+        transition: border-bottom 0.3s;
+    }
+    #faq-352 .cs-faq-item.active {
+        border-color: var(--primaryLight);
+    }
+    #faq-352 .cs-faq-item.active .cs-button:before {
+        background-color: var(--primaryLight);
+        transform: rotate(315deg);
+    }
+    #faq-352 .cs-faq-item.active .cs-button:after {
+        background-color: var(--primaryLight);
+        transform: rotate(-315deg);
+    }
+    #faq-352 .cs-faq-item.active .cs-item-p {
+        height: auto;
+        padding: 0 clamp(1rem, 2vw, 1.5rem) clamp(1.25rem, 1.3vw, 1.5rem);
+        opacity: 1;
+    }
+    #faq-352 .cs-button {
+        font-size: 1rem;
+        line-height: 1.2em;
+        text-align: left;
+        font-weight: bold;
+        padding: clamp(1rem, 1.3vw, 1.25rem);
+        border: none;
+        background: transparent;
+        color: var(--headerColor);
+        display: block;
+        width: 100%;
+        position: relative;
+        transition: background-color 0.3s, color 0.3s;
+        cursor: pointer;
+    }
+    #faq-352 .cs-button:before {
+        content: "";
+        width: 0.5rem;
+        height: 0.125rem;
+        background-color: var(--headerColor);
+        opacity: 1;
+        border-radius: 50%;
+        position: absolute;
+        display: block;
+        top: 45%;
+        right: 1.5rem;
+        transform: rotate(45deg);
+        transform-origin: left center;
+        transition: transform 0.5s;
+    }
+    #faq-352 .cs-button:after {
+        content: "";
+        width: 0.5rem;
+        height: 0.125rem;
+        background-color: var(--headerColor);
+        opacity: 1;
+        border-radius: 50%;
+        position: absolute;
+        display: block;
+        top: 45%;
+        right: 1.3125rem;
+        transform: rotate(-45deg);
+        transform-origin: right center;
+        transition: transform 0.5s;
+    }
+    #faq-352 .cs-button-text {
+        width: 80%;
+        display: block;
+    }
+    #faq-352 .cs-item-p {
+        font-size: clamp(0.875rem, 1.5vw, 1rem);
+        line-height: 1.5em;
+        width: 90%;
+        height: 0;
+        margin: 0;
+        padding: 0 clamp(1rem, 2vw, 1.5rem);
+        opacity: 0;
+        color: var(--bodyTextColor);
+        overflow: hidden;
+        transition: opacity 0.3s, padding-bottom 0.3s;
+    }
+    #faq-352 .cs-left {
+        font-size: min(2.08vw, 0.791em);
+        width: 42.875em;
+        height: 46.875em;
+        position: relative;
+        z-index: 1;
+    }
+    #faq-352 .cs-left:before {
+        content: "";
+        width: 7.5em;
+        height: 7.5em;
+        border-radius: 50%;
+        background: var(--primaryLight);
+        opacity: 1;
+        position: absolute;
+        display: block;
+        top: 3.125em;
+        right: 18.75em;
+        z-index: -1;
+        animation-name: floatAnimation2;
+        animation-duration: 6s;
+        animation-timing-function: ease-in-out;
+        animation-fill-mode: forwards;
+        animation-iteration-count: infinite;
+    }
+    #faq-352 .cs-left:after {
+        content: "";
+        width: 9.375em;
+        height: 9.375em;
+        border-radius: 50%;
+        background: var(--primaryLight);
+        opacity: 1;
+        position: absolute;
+        display: block;
+        top: 1.25em;
+        right: 11.875em;
+        z-index: -1;
+        animation-name: floatAnimation2;
+        animation-duration: 10s;
+        animation-timing-function: ease-in-out;
+        animation-fill-mode: forwards;
+        animation-iteration-count: infinite;
+    }
+    #faq-352 .cs-picture {
+        position: absolute;
+        border-radius: 50%;
+        overflow: hidden;
+        border: 10px solid #fff;
+    }
+    #faq-352 .cs-picture1 {
+        width: 42em;
+        height: 42em;
+        top: 0;
+        left: 0;
+    }
+    #faq-352 .cs-picture2 {
+        width: 18.75em;
+        height: 18.75em;
+        bottom: 3.125em;
+        right: 0;
+        z-index: 2;
+        animation-name: floatAnimation;
+        animation-duration: 8s;
+        animation-timing-function: ease-in-out;
+        animation-fill-mode: forwards;
+        animation-iteration-count: infinite;
+    }
+    #faq-352 .cs-picture3 {
+        width: 12.5em;
+        height: 12.5em;
+        top: 6.25em;
+        right: 6.25em;
+        z-index: 3;
+    }
+    #faq-352 .cs-picture4 {
+        width: 12.5em;
+        height: 12.5em;
+        bottom: 0;
+        right: 12.5em;
+        z-index: 3;
+    }
+    #faq-352 .cs-blue {
+        width: 28.125em;
+        height: 28.125em;
+        background-color: var(--primary);
+        border-radius: 50%;
+        position: absolute;
+        bottom: -3.125em;
+        left: -6.25em;
+        z-index: -1;
+        opacity: 0.3;
+    }
+    #faq-352 .cs-picture img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    @keyframes floatAnimation {
+        0% { transform: translateY(0); }
+        50% { transform: translateY(-2em); }
+        100% { transform: translateY(0); }
+    }
+    @keyframes floatAnimation2 {
+        0% { transform: translateY(0); }
+        50% { transform: translateY(-1em); }
+        100% { transform: translateY(0); }
+    }
+}
+@media only screen and (min-width: 48rem) {
+    #faq-352 .cs-container {
+        max-width: 77.5rem;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-start;
+    }
+    #faq-352 .cs-content {
+        width: 50%;
+        max-width: 39.0625rem;
+    }
+    #faq-352 .cs-left {
+        font-size: min(1.2vw, 0.8em);
+        width: 45em;
+        height: 49.375em;
+        flex: none;
+    }
+}
+@media only screen and (min-width: 64rem) {
+    #faq-352 .cs-left {
+        font-size: min(1vw, 0.8em);
+    }
+}
+body.dark-mode #faq-352 {
+    background-color: rgba(0, 0, 0, 0.2);
+}
+body.dark-mode #faq-352 .cs-picture {
+    border-color: var(--accent);
+}
+body.dark-mode #faq-352 .cs-topper {
+    color: var(--primaryLight);
+}
+body.dark-mode #faq-352 .cs-title,
+body.dark-mode #faq-352 .cs-item-p {
+    color: var(--bodyTextColorWhite);
+}
+body.dark-mode #faq-352 .cs-faq-item {
+    border-color: rgba(255, 255, 255, 0.2);
+}
+body.dark-mode #faq-352 .cs-faq-item.active {
+    border-color: var(--primaryLight);
+}
+body.dark-mode #faq-352 .cs-faq-item.active .cs-button {
+    color: var(--primaryLight);
+}
+body.dark-mode #faq-352 .cs-faq-item.active .cs-button:before,
+body.dark-mode #faq-352 .cs-faq-item.active .cs-button:after {
+    background-color: var(--primaryLight);
+}
+body.dark-mode #faq-352 .cs-button {
+    color: var(--bodyTextColorWhite);
+}
+body.dark-mode #faq-352 .cs-button:before,
+body.dark-mode #faq-352 .cs-button:after {
+    background-color: var(--bodyTextColorWhite);
+}
+</style>

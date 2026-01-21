@@ -19,44 +19,43 @@
 ✅ https://codestitch.app/app/dashboard/stitches/348 (MeetOurTeam348.astro)
 ✅ https://codestitch.app/app/dashboard/stitches/349 (FAQ349.astro)
 ✅ https://codestitch.app/app/dashboard/stitches/351 (FAQ351.astro)
-❌ https://codestitch.app/app/dashboard/stitches/352 (403 Forbidden)
-❌ https://codestitch.app/app/dashboard/stitches/353 (403 Forbidden)
-❌ https://codestitch.app/app/dashboard/stitches/357 (403 Forbidden)
-❌ https://codestitch.app/app/dashboard/stitches/358 (403 Forbidden)
-❌ https://codestitch.app/app/dashboard/stitches/359 (403 Forbidden)
-❌ https://codestitch.app/app/dashboard/stitches/361 (403 Forbidden)
-❌ https://codestitch.app/app/dashboard/stitches/362 (403 Forbidden)
-❌ https://codestitch.app/app/dashboard/stitches/363 (403 Forbidden)
-❌ https://codestitch.app/app/dashboard/stitches/364 (403 Forbidden)
-❌ https://codestitch.app/app/dashboard/stitches/365 (403 Forbidden)
-❌ https://codestitch.app/app/dashboard/stitches/366 (403 Forbidden)
-❌ https://codestitch.app/app/dashboard/stitches/367 (403 Forbidden)
-❌ https://codestitch.app/app/dashboard/stitches/368 (403 Forbidden)
-❌ https://codestitch.app/app/dashboard/stitches/369 (403 Forbidden)
-❌ https://codestitch.app/app/dashboard/stitches/370 (403 Forbidden)
-❌ https://codestitch.app/app/dashboard/stitches/371
-❌ https://codestitch.app/app/dashboard/stitches/372
-❌ https://codestitch.app/app/dashboard/stitches/373
-❌ https://codestitch.app/app/dashboard/stitches/374
-❌ https://codestitch.app/app/dashboard/stitches/375
-❌ https://codestitch.app/app/dashboard/stitches/376
-❌ https://codestitch.app/app/dashboard/stitches/377
-❌ https://codestitch.app/app/dashboard/stitches/378
-❌ https://codestitch.app/app/dashboard/stitches/379
-❌ https://codestitch.app/app/dashboard/stitches/380
-❌ https://codestitch.app/app/dashboard/stitches/382
-❌ https://codestitch.app/app/dashboard/stitches/383
-❌ https://codestitch.app/app/dashboard/stitches/384
-❌ https://codestitch.app/app/dashboard/stitches/385
-❌ https://codestitch.app/app/dashboard/stitches/387
-❌ https://codestitch.app/app/dashboard/stitches/388
-❌ https://codestitch.app/app/dashboard/stitches/389
+✅ https://codestitch.app/app/dashboard/stitches/352 (FAQ352.astro)
+✅ https://codestitch.app/app/dashboard/stitches/353 (Reviews353.astro)
+✅ https://codestitch.app/app/dashboard/stitches/357 (Pricing357.astro)
+✅ https://codestitch.app/app/dashboard/stitches/358 (Hero358.astro)
+✅ https://codestitch.app/app/dashboard/stitches/359 (Hero359.astro)
+✅ https://codestitch.app/app/dashboard/stitches/361 (Hero361.astro)
+✅ https://codestitch.app/app/dashboard/stitches/362 (Hero362.astro)
+✅ https://codestitch.app/app/dashboard/stitches/363 (Hero363.astro)
+✅ https://codestitch.app/app/dashboard/stitches/364 (Hero364.astro)
+✅ https://codestitch.app/app/dashboard/stitches/365 (Hero365.astro)
+✅ https://codestitch.app/app/dashboard/stitches/366 (Services366.astro)
+✅ https://codestitch.app/app/dashboard/stitches/367 (Services367.astro)
+✅ https://codestitch.app/app/dashboard/stitches/368 (Services368.astro)
+✅ https://codestitch.app/app/dashboard/stitches/369 (Hero369.astro)
+✅ https://codestitch.app/app/dashboard/stitches/370 (Hero370.astro)
+✅ https://codestitch.app/app/dashboard/stitches/371 (SBSR371.astro)
+✅ https://codestitch.app/app/dashboard/stitches/372 (Hero372.astro)
+✅ https://codestitch.app/app/dashboard/stitches/373 (Hero373.astro)
+❌ https://codestitch.app/app/dashboard/stitches/374 (403 Forbidden)
+❌ https://codestitch.app/app/dashboard/stitches/375 (403 Forbidden)
+❌ https://codestitch.app/app/dashboard/stitches/376 (403 Forbidden)
+❌ https://codestitch.app/app/dashboard/stitches/377 (403 Forbidden)
+❌ https://codestitch.app/app/dashboard/stitches/378 (403 Forbidden)
+❌ https://codestitch.app/app/dashboard/stitches/379 (403 Forbidden)
+❌ https://codestitch.app/app/dashboard/stitches/380 (403 Forbidden)
+❌ https://codestitch.app/app/dashboard/stitches/382 (403 Forbidden)
+❌ https://codestitch.app/app/dashboard/stitches/383 (403 Forbidden)
+❌ https://codestitch.app/app/dashboard/stitches/384 (403 Forbidden)
+❌ https://codestitch.app/app/dashboard/stitches/385 (403 Forbidden)
+❌ https://codestitch.app/app/dashboard/stitches/387 (403 Forbidden)
+❌ https://codestitch.app/app/dashboard/stitches/388 (403 Forbidden)
+❌ https://codestitch.app/app/dashboard/stitches/389 (403 Forbidden)
 ✅ https://codestitch.app/app/dashboard/stitches/399 (Reviews399.astro)
-❌ https://codestitch.app/app/dashboard/stitches/400
-❌ https://codestitch.app/app/dashboard/stitches/401
-❌ https://codestitch.app/app/dashboard/stitches/402
-❌ https://codestitch.app/app/dashboard/stitches/403
-❌ https://codestitch.app/app/dashboard/stitches/404
-❌ https://codestitch.app/app/dashboard/stitches/405
-❌ https://codestitch.app/app/dashboard/stitches/406
+❌ https://codestitch.app/app/dashboard/stitches/400 (403 Forbidden)
+❌ https://codestitch.app/app/dashboard/stitches/401 (403 Forbidden)
+❌ https://codestitch.app/app/dashboard/stitches/402 (403 Forbidden)
+❌ https://codestitch.app/app/dashboard/stitches/403 (403 Forbidden)
+❌ https://codestitch.app/app/dashboard/stitches/405 (403 Forbidden)
+❌ https://codestitch.app/app/dashboard/stitches/406 (403 Forbidden)
 

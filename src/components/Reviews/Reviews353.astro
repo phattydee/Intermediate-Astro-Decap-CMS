@@ -1,0 +1,152 @@
+---
+---
+
+<!-- ============================================ -->
+<!--                   Reviews                    -->
+<!-- ============================================ -->
+
+<section id="reviews-353">
+    <div class="cs-container">
+        <div class="cs-content">
+            <span class="cs-topper">Testimonials</span>
+            <h2 class="cs-title">Trusted by Thousand of People & Companies</h2>
+            <p class="cs-text">
+                At Stitch Cleaning Service, let us help you solve problems so that you can focus on your mission. We support businesses through periods of expansion, succession.
+            </p>
+        </div>
+        <ul class="cs-card-group">
+            <li class="cs-item">
+                <img class="cs-quote" aria-hidden="true" src="https://csimg.nyc3.digitaloceanspaces.com/Reviews/quote-blue.svg" decoding="async" alt="quote icon" width="40" height="33">
+                <p class="cs-review">
+                    I have used CleanPro service for about four years. I describe myself very picky and difficult to be pleased. Exceeded my expectations. 
+                </p>
+                <span class="cs-name">John Doe</span>
+                <span class="cs-job">Chief Executive</span>
+                <!--Person Image in PNG format-->
+                <!--To remove background from image, use https://www.remove.bg/-->
+                <picture class="cs-image">
+                    <source media="(max-width: 600px)" srcset="https://csimg.nyc3.digitaloceanspaces.com/Reviews/person1.png">
+                    <source media="(min-width: 601px)" srcset="https://csimg.nyc3.digitaloceanspaces.com/Reviews/person1.png">
+                    <img aria-hidden="true" loading="lazy" decoding="async" src="https://csimg.nyc3.digitaloceanspaces.com/Reviews/person1.png" alt="person" width="198" height="294">
+                </picture>
+            </li>
+            <li class="cs-item">
+                <img class="cs-quote" aria-hidden="true" src="https://csimg.nyc3.digitaloceanspaces.com/Reviews/quote-blue.svg" decoding="async" alt="quote icon" width="40" height="33">
+                <p class="cs-review">
+                    I have used CleanPro service for about four years. I describe myself very picky and difficult to be pleased. Exceeded my expectations.
+                </p>
+                <span class="cs-name">Robert Henrich</span>
+                <span class="cs-job">CEO, HK Traders</span>
+                <!--Person Image in PNG format-->
+                <picture class="cs-image">
+                    <source media="(max-width: 600px)" srcset="https://csimg.nyc3.digitaloceanspaces.com/Reviews/person2.png">
+                    <source media="(min-width: 601px)" srcset="https://csimg.nyc3.digitaloceanspaces.com/Reviews/person2.png">
+                    <img aria-hidden="true" loading="lazy" decoding="async" src="https://csimg.nyc3.digitaloceanspaces.com/Reviews/person2.png" alt="person" width="211" height="313">
+                </picture>
+            </li>
+        </ul>
+    </div>
+</section>
+
+<style>
+/*-- -------------------------- -->
+<---          Reviews           -->
+<--- -------------------------- -*/
+
+/* Mobile - 360px */
+@media only screen and (min-width: 0rem) {
+    #reviews-353 {
+        padding: var(--sectionPadding);
+    }
+    #reviews-353 .cs-container {
+        width: 100%;
+        max-width: 80rem;
+        margin: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        /* 48px - 64px */
+        gap: clamp(3rem, 6vw, 4rem);
+    }
+    #reviews-353 .cs-content {
+        /* set text align to left if content needs to be left aligned */
+        text-align: center;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        /* centers content horizontally, set to flex-start to left align */
+        align-items: center;
+    }
+
+    #reviews-353 .cs-card-group {
+        padding: 0;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        /* 16px - 20px */
+        gap: clamp(1rem, 2.5vw, 1.15rem);
+    }
+    #reviews-353 .cs-item {
+        list-style: none;
+        width: 100%;
+        max-width: 39.375rem;
+        /* 24px - 32px top & bottom */
+        /* 16px - 40px left & right */
+        padding: clamp(1.5rem, 3.15vw, 2rem) clamp(1rem, 3.15vw, 2.5rem);
+        background-color: #f7f7f7;
+        border-radius: 1rem;
+        /* prevents padding from adding to height and width */
+        box-sizing: border-box;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        flex-direction: column;
+        position: relative;
+    }
+    #reviews-353 .cs-quote {
+        width: 2.5rem;
+        height: auto;
+        margin-bottom: 2rem;
+        display: block;
+    }
+    #reviews-353 .cs-review {
+        /* 14px - 20px */
+        font-size: clamp(0.875rem, 2vw, 1.25rem);
+        line-height: 1.5em;
+        width: 67%;
+        margin: 0;
+        /* 20px - 40px */
+        margin-bottom: clamp(1.25rem, 3vw, 2.5rem);
+        color: var(--bodyTextColor);
+    }
+    #reviews-353 .cs-name {
+        /* 20px - 25px */
+        font-size: clamp(1.25rem, 3vw, 1.5625rem);
+        line-height: 1.2em;
+        font-weight: 700;
+        margin: 0;
+        /* in case one card has more text than the other, this pushes up against the review text so the name and title are always at the bottom. Only works if parent is a flexbox */
+        margin-top: auto;
+        color: var(--headerColor);
+        display: block;
+    }
+    #reviews-353 .cs-job {
+        /* 14px - 16px */
+        font-size: clamp(0.875rem, 1.6vw, 1rem);
+        line-height: 1.5em;
+        margin: 0;
+        color: var(--bodyTextColor);
+        display: block;
+    }
+    #reviews-353 .cs-image {
+        /* 115px - 211px */
+        width: clamp(7.1875rem, 16.5vw, 13.1875rem);
+        height: auto;
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+        position: absolute;
+        bottom: 0;
+</style>
