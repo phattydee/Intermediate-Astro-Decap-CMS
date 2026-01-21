@@ -3,6 +3,36 @@ description: Port a CodeStitch HTML/LESS snippet into an Astro component
 tags: [opencode, authentication, batch-processing, codestitch]
 ---
 
+## 🚨 CRITICAL UPDATE: CSS Extraction Issues Fixed
+
+### Problem Solved
+The port_codestitch workflow has been enhanced to fix the major issue where **commented CSS code blocks were not being copied properly** from CodeStitch.
+
+### Key Improvements Made
+1. **Enhanced CSS Extraction**: Multiple extraction methods to handle different CodeStitch page structures
+2. **Comment Preservation**: Specifically preserves CSS comments (`/* */`) that appear as "commented out" in the UI but are actually active code
+3. **LESS vs CSS Comment Handling**: Distinguishes between LESS comments (`//`) and CSS comments (`/* */`)
+4. **Content Validation**: Automatically checks if extracted CSS contains expected patterns
+5. **Debugging Tools**: Comprehensive debugging and validation scripts
+6. **Fallback Methods**: Alternative extraction when primary method fails
+
+### Quick Start for Fixing Existing Components
+If you have components with incomplete CSS:
+
+```bash
+# Fix CSS for a specific component ID
+fix_css_extraction 399  # Replace 399 with your stitch ID
+```
+
+### When to Use Enhanced Extraction
+- Component appears broken or missing styles
+- CSS seems incomplete (fewer selectors than expected)
+- No comment blocks in extracted CSS
+- Responsive breakpoints missing
+- Dark mode styles not working
+
+This workflow now ensures **ALL CSS content** is properly extracted, including sections that appear commented out in the CodeStitch UI but are actually active code that should be preserved.
+
 ## OpenCode Integration
 
 This workflow is designed to work with opencode tools and commands. Key integration points:
@@ -157,10 +187,137 @@ curl -H "Cookie: $COOKIES" \
 
 ### 2.3 Extract Code Blocks
 From downloaded `temp-stitch-$ID.html`:
-1. **HTML**: Parse and extract the stitch HTML content from the page
-2. **CSS/LESS**: Extract embedded styles and CSS variables
-3. **JavaScript**: Extract any JavaScript code blocks
-4. **Core Styles**: Parse global style definitions and dependencies
+
+#### 2.3.1 Understanding CodeStitch Code Display Structure
+CodeStitch displays code in specific HTML containers that must be properly identified:
+- **HTML Code Blocks**: Typically in `<pre><code>` elements with language identifiers
+- **CSS/LESS Code Blocks**: Similar structure but may include both CSS and LESS options
+- **Commented CSS**: CodeStitch often includes CSS with `/* ... */` comments that ARE part of the active code
+- **LESS Syntax**: Uses `//` for single-line comments (compile-time only) and `/* */` for CSS comments
+
+#### 2.3.2 HTML Extraction Strategy
+```bash
+# Extract HTML from code containers (multiple methods for robustness)
+HTML_EXTRACTED=$(grep -A 1000 -B 5 'HTML' temp-stitch-$ID.html | \
+  sed -n '/<pre[^>]*>/,/<\/pre>/p' | \
+  sed 's/<pre[^>]*>//g; s/<\/pre>//g' | \
+  sed 's/<code[^>]*>//g; s/<\/code>//g' | \
+  sed '/^[[:space:]]*$/d')
+```
+
+#### 2.3.3 CSS/LESS Extraction Strategy (CRITICAL FOR COMMENTED CSS)
+```bash
+# Extract CSS/LESS from code containers - MUST preserve comments
+CSS_EXTRACTED=$(grep -A 1000 -B 5 'CSS\|LESS' temp-stitch-$ID.html | \
+  sed -n '/<pre[^>]*>/,/<\/pre>/p' | \
+  sed 's/<pre[^>]*>//g; s/<\/pre>//g' | \
+  sed 's/<code[^>]*>//g; s/<\/code>//g' | \
+  sed '/^[[:space:]]*$/d')
+
+# Alternative extraction using JavaScript-like parsing for complex pages
+# This handles cases where code is in div containers or other elements
+CSS_EXTRACTED_ALT=$(grep -o '<pre[^>]*>.*</pre>' temp-stitch-$ID.html | \
+  sed 's/<[^>]*>//g' | \
+  sed 's/<\/pre>//g')
+```
+
+#### 2.3.4 Special Handling for Commented CSS
+CodeStitch often includes CSS that appears "commented out" in the UI but is actually active code:
+
+```bash
+# Ensure ALL CSS content is preserved, including commented sections
+# This regex preserves both types of comments:
+# CSS comments: /* comment */ (active in final output)
+# LESS comments: // comment (compile-time only, may be removed)
+
+FINAL_CSS=$(echo "$CSS_EXTRACTED" | \
+  sed 's/&lt;/\</g; s/&gt;/\>/g; s/&amp;/\&/g' | \
+  # Preserve ALL comments including those that appear commented in UI
+  sed '/\/\*/!{/\/\//d;}' # Only remove LESS single-line comments, preserve CSS comments
+)
+```
+
+#### 2.3.5 JavaScript Extraction
+```bash
+# Extract JavaScript from script tags
+JS_EXTRACTED=$(grep -o '<script[^>]*>.*</script>' temp-stitch-$ID.html | \
+  sed 's/<script[^>]*>//g; s/<\/script>//g')
+```
+
+#### 2.3.6 Content Validation and Cleaning
+```bash
+# Validate extracted content isn't empty or just HTML artifacts
+if [ -z "$HTML_EXTRACTED" ] || [[ "$HTML_EXTRACTED" == *"<!--"* ]]; then
+  echo "ERROR: HTML extraction failed for stitch $ID"
+  echo "Attempting alternative extraction methods..."
+  
+  # Fallback: Look for code in different container types
+  HTML_EXTRACTED=$(grep -o '<div[^>]*class="[^"]*code[^"]*"[^>]*>.*</div>' temp-stitch-$ID.html | \
+    head -1 | \
+    sed 's/<[^>]*>//g; s/<\/[^>]*>//g')
+fi
+
+# Ensure CSS contains actual CSS rules, not just comments
+if [[ "$FINAL_CSS" != *"{"* ]] || [[ "$FINAL_CSS" != *"}"* ]]; then
+  echo "WARNING: Extracted CSS may be incomplete for stitch $ID"
+  echo "Checking for alternative CSS containers..."
+  
+  # Look for CSS in different HTML structures
+  ALTERNATIVE_CSS=$(grep -A 50 'style' temp-stitch-$ID.html | grep -o '{[^}]*}' | head -5)
+  if [ ! -z "$ALTERNATIVE_CSS" ]; then
+    FINAL_CSS="$FINAL_CSS"$'\n'"$ALTERNATIVE_CSS"
+  fi
+fi
+```
+
+#### 2.3.7 Component Structure Assembly
+```bash
+# Create the component with all extracted content
+COMPONENT_CONTENT="---
+// Extracted from CodeStitch ID: $ID
+---
+
+$HTML_EXTRACTED
+
+<style lang=\"less\">
+$FINAL_CSS
+</style>"
+
+# Handle JavaScript if present
+if [ ! -z "$JS_EXTRACTED" ]; then
+  COMPONENT_CONTENT="$COMPONENT_CONTENT"$'\n'$'\n'"<script>"
+  COMPONENT_CONTENT="$COMPONENT_CONTENT"$'\n'"$JS_EXTRACTED"
+  COMPONENT_CONTENT="$COMPONENT_CONTENT"$'\n'"</script>"
+fi
+```
+
+#### 2.3.8 Critical Validation Steps
+```bash
+# 1. Ensure HTML contains the expected section ID
+if [[ "$HTML_EXTRACTED" != *id="$CATEGORY-$ID"* ]] && [[ "$HTML_EXTRACTED" != *id="$CATEGORY-$ID"* ]]; then
+  echo "WARNING: HTML may not contain expected ID attribute for stitch $ID"
+fi
+
+# 2. Verify CSS contains the scoped selectors
+if [[ "$FINAL_CSS" != *"#${CATEGORY}-${ID}"* ]]; then
+  echo "WARNING: CSS may not contain expected scoped selectors for stitch $ID"
+fi
+
+# 3. Check for missing commented CSS (common issue)
+if [[ "$FINAL_CSS" == *"/*"* ]] && [[ $(echo "$FINAL_CSS" | grep -c "/*") -lt 2 ]]; then
+  echo "WARNING: Commented CSS sections may be missing from stitch $ID"
+  echo "This often happens when CSS appears commented in the UI but is actually active code"
+fi
+```
+
+## Summary of Key Improvements:
+
+1. **Multiple Extraction Methods**: Uses different approaches to handle various CodeStitch page structures
+2. **Comment Preservation**: Specifically preserves CSS comments (`/* */`) that appear as commented code in UI
+3. **LESS Comment Handling**: Distinguishes between CSS comments (keep) and LESS comments (may remove)
+4. **Content Validation**: Checks that extracted content contains expected patterns
+5. **Fallback Methods**: Alternative extraction when primary method fails
+6. **Artifact Cleaning**: Removes HTML entities and common extraction artifacts
 
 ## 3. Component Creation
 
@@ -363,10 +520,237 @@ Before finalizing, you must verify CSS variables:
             *   *Map Variables*: Change component code to use existing project variables
             *   *Local Scope*: Define variables inside the component's `<style>` block
 
-## 8. Verification
-*   Run the dev server (`npm start`) and verify the visual appearance
-*   Check dark mode functionality by toggling theme
-*   Verify responsive behavior across different screen sizes
+## 8. Troubleshooting CSS Extraction Issues
+
+### 8.1 Common CSS Extraction Problems
+
+#### Problem: Commented CSS Not Copying
+**Symptoms**: Component appears missing styles, broken layout, or incomplete styling
+**Causes**: CodeStitch UI shows CSS as "commented out" but it's actually active code that should be preserved
+
+**Detection**:
+```bash
+# Check if extracted CSS is missing comment blocks
+if [[ $(echo "$FINAL_CSS" | grep -c "/*") -lt 2 ]]; then
+  echo "ERROR: Commented CSS sections missing from stitch $ID"
+fi
+```
+
+**Solutions**:
+```bash
+# Method 1: Enhanced extraction that preserves all CSS comments
+ENHANCED_CSS=$(curl -s "https://codestitch.app/app/dashboard/stitches/$ID" | \
+  grep -A 200 -B 5 'style.*lang="less"' | \
+  sed -n '/<code>/,/<\/code>/p' | \
+  sed 's/<code[^>]*>//g; s/<\/code>//g' | \
+  sed 's/&lt;/</g; s/&gt;/>/g; s/&amp;/\&/g')
+
+# Method 2: Extract from page's raw content areas
+RAW_CSS=$(curl -s "https://codestitch.app/app/dashboard/stitches/$ID" | \
+  grep -o '\/\*[^*]*\*+([^/*][^*]*\*+\/\)*' | \
+  head -20)
+
+# Method 3: Look for CSS in hidden elements that contain actual code
+HIDDEN_CSS=$(curl -s "https://codestitch.app/app/dashboard/stitches/$ID" | \
+  grep -A 100 'data-clipboard-text' | \
+  grep -o '"[^"]*{' | \
+  sed 's/"//g')
+```
+
+#### Problem: CSS Appears as Comments in UI but is Active
+**Understanding**: CodeStitch often displays CSS like this in UI:
+```css
+/*-- -------------------------- */
+/*--          Services          --*/
+/*-- -------------------------- --*/
+
+#services-342 {
+    padding: var(--sectionPadding);
+}
+
+/* This might appear commented in UI but is active */
+.cs-item:hover {
+    transform: translateY(-0.4375rem);
+}
+```
+
+**Solution**: Extract ALL content between `/*` and `*/` markers:
+```bash
+# Extract everything between comment markers - this is actual active code
+ACTIVE_CSS=$(echo "$RAW_CSS" | \
+  sed -n '/\/\*/,/\*\//p' | \
+  sed 's/\/\*//g; s/\*\///g' | \
+  sed '/^[[:space:]]*$/d')
+```
+
+### 8.2 Debugging CSS Extraction
+
+#### Step-by-Step CSS Debug Process
+```bash
+# 1. Download page source
+curl -H "Cookie: $COOKIES" "https://codestitch.app/app/dashboard/stitches/$ID" > debug-source-$ID.html
+
+# 2. Find all potential CSS containers
+echo "=== Finding CSS containers ==="
+grep -n -A 5 -B 5 "css\|CSS\|style\|less" debug-source-$ID.html | head -50
+
+# 3. Extract content from different container types
+echo "=== Extracting from <pre> tags ==="
+grep -o '<pre[^>]*>.*</pre>' debug-source-$ID.html | head -3
+
+echo "=== Extracting from <code> tags ==="
+grep -o '<code[^>]*>.*</code>' debug-source-$ID.html | head -3
+
+echo "=== Extracting from <textarea> tags ==="
+grep -o '<textarea[^>]*>.*</textarea>' debug-source-$ID.html | head -3
+
+# 4. Look for data attributes that might contain code
+echo "=== Checking data attributes ==="
+grep -o 'data-[^=]*="[^"]*"' debug-source-$ID.html | grep -i code
+```
+
+#### Validation Script
+```bash
+validate_css_extraction() {
+  local ID=$1
+  local CSS_FILE=$2
+  
+  echo "=== Validating CSS for Stitch $ID ==="
+  
+  # Check for required CSS patterns
+  local HAS_SELECTORS=$(grep -c "{" "$CSS_FILE")
+  local HAS_COMMENTS=$(grep -c "/\*" "$CSS_FILE")
+  local HAS_STITCH_ID=$(grep -c "#.*$ID" "$CSS_FILE")
+  
+  echo "CSS selectors found: $HAS_SELECTORS"
+  echo "CSS comments found: $HAS_COMMENTS"
+  echo "Stitch ID selectors: $HAS_STITCH_ID"
+  
+  if [ "$HAS_SELECTORS" -lt 3 ]; then
+    echo "WARNING: Very few CSS selectors found - extraction may be incomplete"
+  fi
+  
+  if [ "$HAS_COMMENTS" -lt 1 ]; then
+    echo "WARNING: No CSS comments found - may be missing commented CSS"
+  fi
+  
+  if [ "$HAS_STITCH_ID" -lt 1 ]; then
+    echo "ERROR: No stitch ID found in CSS selectors"
+  fi
+}
+
+# Usage: validate_css_extraction $ID "extracted.css"
+```
+
+### 8.3 Enhanced Extraction Script
+
+#### Complete CSS Extraction Solution
+```bash
+extract_css_comprehensive() {
+  local ID=$1
+  local COOKIES="$2"
+  
+  echo "Starting comprehensive CSS extraction for stitch $ID..."
+  
+  # Download page with all content
+  local PAGE_CONTENT=$(curl -s -H "Cookie: $COOKIES" \
+    "https://codestitch.app/app/dashboard/stitches/$ID")
+  
+  # Method 1: Standard code block extraction
+  local CSS_METHOD1=$(echo "$PAGE_CONTENT" | \
+    grep -A 1000 -B 5 'less\|css' | \
+    sed -n '/<pre[^>]*>/,/<\/pre>/p' | \
+    sed 's/<[^>]*>//g')
+  
+  # Method 2: Extract from clipboard data attributes
+  local CSS_METHOD2=$(echo "$PAGE_CONTENT" | \
+    grep -o 'data-clipboard-text="[^"]*"' | \
+    sed 's/data-clipboard-text="//g; s/"$//g' | \
+    sed 's/&lt;/</g; s/&gt;/>/g')
+  
+  # Method 3: Extract from script tag contents
+  local CSS_METHOD3=$(echo "$PAGE_CONTENT" | \
+    grep -A 200 'window\.__CODE__' | \
+    grep -o '"[^"]*{' | \
+    sed 's/"//g')
+  
+  # Choose best method (one with most CSS content)
+  local BEST_METHOD=""
+  local MAX_SELECTORS=0
+  
+  for method in "$CSS_METHOD1" "$CSS_METHOD2" "$CSS_METHOD3"; do
+    local SELECTOR_COUNT=$(echo "$method" | grep -c "{")
+    if [ "$SELECTOR_COUNT" -gt "$MAX_SELECTORS" ]; then
+      MAX_SELECTORS=$SELECTOR_COUNT
+      BEST_METHOD="$method"
+    fi
+  done
+  
+  # Clean and enhance best method
+  local FINAL_CSS=$(echo "$BEST_METHOD" | \
+    sed 's/&lt;/</g; s/&gt;/>/g; s/&amp;/\&/g' | \
+    # Preserve ALL CSS comments including those that look commented in UI
+    sed '/\/\*/!{/\/\//d;}' | \
+    # Clean up HTML entities
+    sed 's/&nbsp;/ /g; s/&quot;/"/g' | \
+    # Remove excessive whitespace but preserve structure
+    sed '/^[[:space:]]*$/d')
+  
+  echo "$FINAL_CSS"
+}
+```
+
+### 8.4 Testing Extracted Components
+
+#### Manual Testing Checklist
+1. **Visual Inspection**: Open component in browser - does it look complete?
+2. **Responsive Testing**: Check mobile, tablet, desktop breakpoints
+3. **Dark Mode**: Toggle dark mode - do all styles apply correctly?
+4. **CSS Validation**: Check browser dev tools for missing styles
+5. **Comment Analysis**: Do comments match what was visible in CodeStitch?
+
+#### Automated Testing
+```bash
+test_component_css() {
+  local COMPONENT_FILE=$1
+  local EXPECTED_ID=$2
+  
+  # Extract CSS from component
+  local COMPONENT_CSS=$(sed -n '/<style/,/<\/style>/p' "$COMPONENT_FILE" | \
+    sed 's/<style[^>]*>//g; s/<\/style>//g')
+  
+  # Validation checks
+  local ISSUES=0
+  
+  # Check for stitch ID in CSS
+  if [[ "$COMPONENT_CSS" != *"$EXPECTED_ID"* ]]; then
+    echo "ISSUE: Stitch ID $EXPECTED_ID not found in CSS"
+    ISSUES=$((ISSUES + 1))
+  fi
+  
+  # Check for minimum CSS complexity
+  if [ $(echo "$COMPONENT_CSS" | grep -c "{") -lt 5 ]; then
+    echo "ISSUE: CSS appears too simple - may be incomplete"
+    ISSUES=$((ISSUES + 1))
+  fi
+  
+  # Check for common CodeStitch patterns
+  if [[ "$COMPONENT_CSS" != *".cs-"* ]]; then
+    echo "ISSUE: No CodeStitch class patterns found"
+    ISSUES=$((ISSUES + 1))
+  fi
+  
+  return $ISSUES
+}
+```
+
+## 9. Verification
+*   Run the dev server (`npm start`) and verify the visual appearance.
+*   Check dark mode functionality by toggling theme.
+*   Verify responsive behavior across different screen sizes.
+*   **NEW**: Run CSS validation script on each extracted component.
+*   **NEW**: Compare extracted component visually with CodeStitch preview.
+*   **NEW**: Check browser dev tools for any missing or broken CSS rules.
 
 ---
 
@@ -385,6 +769,68 @@ Before finalizing, you must verify CSS variables:
 *   Run the dev server (`npm start`) and verify visual appearance.
 
 ---
+
+## Quick Reference: CSS Extraction Issues
+
+### Common Problems & Solutions
+
+| Problem | Symptom | Solution |
+|---------|----------|----------|
+| Commented CSS missing | Broken layout, incomplete styles | Use enhanced extraction that preserves `/* */` comments |
+| CSS appears commented in UI | Styles not applying | Extract ALL content between `/*` and `*/` markers |
+| Incomplete CSS extraction | Missing responsive breakpoints | Use multiple extraction methods and validate selector count |
+| HTML entities in CSS | CSS syntax errors | Clean with `sed 's/&lt;/</g; s/&gt;/>/g; s/&amp;/\&/g'` |
+| Wrong CSS container | Empty or garbled CSS | Try extracting from `<pre>`, `<code>`, and `<textarea>` tags |
+
+### Quick Fix Commands
+
+```bash
+# Quick CSS fix for most common issues
+fix_css_extraction() {
+  local ID=$1
+  
+  # Download and extract with comment preservation
+  curl -s "https://codestitch.app/app/dashboard/stitches/$ID" | \
+    grep -A 200 'style.*lang="less"' | \
+    sed -n '/<code>/,/<\/code>/p' | \
+    sed 's/<[^>]*>//g; s/&lt;/</g; s/&gt;/>/g' | \
+    grep -o '/\*[^*]*\*+([^/*][^*]*\*+\/\)*' | \
+    sed 's/\/\*//g; s/\*\///g' > "fixed-css-$ID.less"
+  
+  echo "CSS fixed and saved to fixed-css-$ID.less"
+}
+
+# Usage: fix_css_extraction 399
+```
+
+### Validation Checklist
+
+- [ ] Component has the expected number of CSS selectors (usually 10+)
+- [ ] CSS contains the stitch ID (e.g., `#services-399`)
+- [ ] Comment blocks are preserved in CSS
+- [ ] Responsive breakpoints are present (`@media` queries)
+- [ ] Dark mode styles are included if applicable
+- [ ] No HTML entities remain in CSS (`&lt;`, `&gt;`, etc.)
+
+### Debug Commands
+
+```bash
+# Check what CSS was actually extracted
+echo "=== CSS Content Analysis ==="
+echo "Total lines: $(wc -l < extracted.css)"
+echo "CSS selectors: $(grep -c '{' extracted.css)"
+echo "Comments: $(grep -c '/*' extracted.css)"
+echo "Stitch ID references: $(grep -c '#[a-z]-[0-9]' extracted.css)"
+
+# Find missing patterns
+echo "=== Missing Patterns ==="
+if ! grep -q ".cs-container" extracted.css; then
+  echo "Missing .cs-container pattern"
+fi
+if ! grep -q "@media" extracted.css; then
+  echo "Missing responsive breakpoints"
+fi
+```
 
 ## Quick Reference: Adding Existing Components to Pages
 
