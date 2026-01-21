@@ -1,0 +1,361 @@
+---
+const faqItems = [
+    {
+        question: "How much are house cleaning services?",
+        answer: "Some cleaning plans require a minimum commitment term. Cancelling your plan before the minimum term is complete will result in a $99 fee. If you want to learn more information about how to cancel, please inbox us.",
+        active: true,
+    },
+    {
+        question: "What is your plan cancellation policy?",
+        answer: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sit convallis nunc neque, bibendum pulvinar vitae commodo velit. Proin diam tortor sed malesuada nunc, habitant. Dignissim ipsum porta enim, magna urna, quam.",
+        active: false,
+    },
+    {
+        question: "How long should a house cleaning take?",
+        answer: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sit convallis nunc neque, bibendum pulvinar vitae commodo velit. Proin diam tortor sed malesuada nunc, habitant. Dignissim ipsum porta enim, magna urna, quam.",
+        active: false,
+    },
+    {
+        question: "How much are house cleaning services?",
+        answer: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sit convallis nunc neque, bibendum pulvinar vitae commodo velit. Proin diam tortor sed malesuada nunc, habitant. Dignissim ipsum porta enim, magna urna, quam.",
+        active: false,
+    },
+    {
+        question: "Can cleanings be scheduled?",
+        answer: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sit convallis nunc neque, bibendum pulvinar vitae commodo velit. Proin diam tortor sed malesuada nunc, habitant. Dignissim ipsum porta enim, magna urna, quam.",
+        active: false,
+    },
+];
+---
+
+<section id="faq-350">
+    <div class="cs-container">
+        <div class="cs-left">
+            <!--Big Image-->
+            <picture class="cs-picture cs-picture1" aria-hidden="true">
+                <source media="(max-width: 600px)" srcset="https://csimg.nyc3.digitaloceanspaces.com/SideBySide/cleaner3-m.jpg" />
+                <source media="(min-width: 601px)" srcset="https://csimg.nyc3.digitaloceanspaces.com/SideBySide/cleaner3.jpg" />
+                <img
+                    loading="lazy"
+                    decoding="async"
+                    src="https://csimg.nyc3.digitaloceanspaces.com/SideBySide/cleaner3.jpg"
+                    alt="cleaning supplies"
+                    width="672"
+                    height="672"
+                />
+            </picture>
+            <!--Medium Image-->
+            <picture class="cs-picture cs-picture2" aria-hidden="true">
+                <source media="(max-width: 600px)" srcset="https://csimg.nyc3.digitaloceanspaces.com/SideBySide/cleaning2-m.jpg" />
+                <source media="(min-width: 601px)" srcset="https://csimg.nyc3.digitaloceanspaces.com/SideBySide/cleaning2.jpg" />
+                <img
+                    loading="lazy"
+                    decoding="async"
+                    src="https://csimg.nyc3.digitaloceanspaces.com/SideBySide/cleaning2.jpg"
+                    alt="cleaning supplies"
+                    width="300"
+                    height="300"
+                />
+            </picture>
+            <!--Small Image-->
+            <picture class="cs-picture cs-picture3" aria-hidden="true">
+                <source media="(max-width: 600px)" srcset="https://csimg.nyc3.digitaloceanspaces.com/SideBySide/cleaning1-m.jpg" />
+                <source media="(min-width: 601px)" srcset="https://csimg.nyc3.digitaloceanspaces.com/SideBySide/cleaning1.jpg" />
+                <img
+                    loading="lazy"
+                    decoding="async"
+                    src="https://csimg.nyc3.digitaloceanspaces.com/SideBySide/cleaning1.jpg"
+                    alt="cleaner"
+                    width="200"
+                    height="200"
+                />
+            </picture>
+        </div>
+        <div class="cs-content">
+            <span class="cs-topper">Asked questions</span>
+            <h2 class="cs-title">Frequently Asked Questions</h2>
+            <ul class="cs-faq-group">
+                {
+                    faqItems.map((item, index) => (
+                        <li class={`cs-faq-item ${item.active ? 'active' : ''}`} set:html={index}>
+                            <button class="cs-button">
+                                <span class="cs-button-text">{item.question}</span>
+                            </button>
+                            <p class="cs-item-p">{item.answer}</p>
+                        </li>
+                    ))
+                }
+            </ul>
+        </div>
+    </div>
+</section>
+
+<style lang="less">
+/*-- -------------------------- */
+/*--            FAQ             --*/
+/*-- -------------------------- --*/
+
+/* Mobile - 360px */
+@media only screen and (min-width: 0rem) {
+    #faq-350 {
+        padding: var(--sectionPadding);
+        background: #f7f7f7;
+
+        .cs-container {
+            width: 100%;
+            /* changes to 1280px at desktop */
+            max-width: (550/16rem);
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            /* 40px - 48px */
+            gap: clamp(2.5rem, 5vw, 3rem);
+        }
+
+        .cs-left {
+            width: 100%;
+            max-width: (500/16rem);
+            height: (444/16rem);
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .cs-picture {
+            position: absolute;
+            border-radius: (16/16rem);
+            overflow: hidden;
+
+            img {
+                position: absolute;
+                top: 0;
+                left: 0;
+                height: 100%;
+                width: 100%;
+                object-fit: cover;
+            }
+        }
+
+        .cs-picture1 {
+            width: (260/16rem);
+            height: (260/16rem);
+            right: 0;
+            top: 0;
+            z-index: 3;
+        }
+
+        .cs-picture2 {
+            width: (180/16rem);
+            height: (180/16rem);
+            left: 0;
+            top: (40/16rem);
+            z-index: 2;
+        }
+
+        .cs-picture3 {
+            width: (120/16rem);
+            height: (120/16rem);
+            right: (80/16rem);
+            bottom: 0;
+            z-index: 1;
+        }
+
+        .cs-content {
+            /* set text align to left if content needs to be left aligned */
+            text-align: left;
+            width: 100%;
+            max-width: (522/16rem);
+            display: flex;
+            flex-direction: column;
+            /* centers content horizontally, set to flex-start to left align */
+            align-items: flex-start;
+        }
+
+        .cs-title {
+            margin: 0 0 (32/16rem) 0;
+        }
+
+        .cs-faq-group {
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .cs-faq-item {
+            list-style: none;
+            width: 100%;
+            border-bottom: 1px solid #e8e8e8;
+            transition: border-bottom 0.3s;
+        }
+
+        .cs-faq-item.active {
+            border-color: var(--primaryLight);
+        }
+
+        .cs-faq-item.active .cs-button:before {
+            background-color: var(--primaryLight);
+            transform: rotate(315deg);
+        }
+
+        .cs-faq-item.active .cs-button:after {
+            background-color: var(--primaryLight);
+            transform: rotate(-315deg);
+        }
+
+        .cs-faq-item.active .cs-item-p {
+            height: auto;
+            /* 20px - 24px bottom */
+            /* 16px - 24px left & right */
+            padding: 0 clamp(1rem, 2vw, 1.5rem) clamp(1.25rem, 1.3vw, 1.5rem);
+        }
+
+        .cs-button {
+            font-size: (16/16rem);
+            line-height: 1.5em;
+            text-align: left;
+            font-weight: bold;
+            margin: 0;
+            padding: (20/16rem) 0;
+            color: var(--headerColor);
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+            transition: color 0.3s;
+        }
+
+        .cs-button:hover,
+        .cs-button:focus {
+            color: var(--primary);
+        }
+
+        .cs-button:before,
+        .cs-button:after {
+            /* the plus and minus icon */
+            content: "";
+            position: absolute;
+            /* 30px - 40px */
+            right: clamp(1.875rem, 4vw, 2.5rem);
+            width: (12/16rem);
+            height: (2/16rem);
+            background-color: var(--primary);
+            transition:
+                background-color 0.3s,
+                transform 0.3s;
+        }
+
+        .cs-button:before {
+            transform: rotate(45deg);
+        }
+
+        .cs-button:after {
+            transform: rotate(-45deg);
+        }
+
+        .cs-button-text {
+            width: 90%;
+            display: block;
+        }
+
+        .cs-item-p {
+            /* 12px - 16px */
+            font-size: clamp(0.75rem, 1.5vw, 1rem);
+            line-height: 1.5em;
+            margin: 0;
+            color: #595959;
+            height: 0;
+            overflow: hidden;
+            transition: height 0.3s, padding 0.3s;
+        }
+    }
+}
+
+/* Tablet - 768px */
+@media only screen and (min-width: 48rem) {
+    #faq-350 {
+        .cs-container {
+            max-width: (1280/16rem);
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: stretch;
+            gap: (80/16rem);
+        }
+
+        .cs-left {
+            max-width: (550/16rem);
+            height: (600/16rem);
+            /* sent to back so it doesn't overlap content on tablet */
+            z-index: 1;
+        }
+
+        .cs-picture1 {
+            width: (340/16rem);
+            height: (340/16rem);
+        }
+
+        .cs-picture2 {
+            width: (220/16rem);
+            height: (220/16rem);
+            top: (80/16rem);
+        }
+
+        .cs-picture3 {
+            width: (170/16rem);
+            height: (170/16rem);
+            right: (120/16rem);
+        }
+
+        .cs-content {
+            max-width: (650/16rem);
+        }
+    }
+}
+
+/* Dark Mode */
+@media only screen and (min-width: 0rem) {
+    body.dark-mode {
+        #faq-350 {
+            background: var(--dark);
+
+            .cs-topper {
+                color: var(--primaryLight);
+            }
+
+            .cs-title {
+                color: var(--bodyTextColorWhite);
+            }
+
+            .cs-faq-item {
+                border-color: rgba(255, 255, 255, 0.2);
+            }
+
+            .cs-faq-item.active {
+                border-color: var(--primaryLight);
+            }
+
+            .cs-button {
+                color: var(--bodyTextColorWhite);
+            }
+
+            .cs-button:before,
+            .cs-button:after {
+                background-color: var(--primaryLight);
+            }
+
+            .cs-item-p {
+                color: var(--bodyTextColorWhite);
+            }
+        }
+    }
+}
+</style>

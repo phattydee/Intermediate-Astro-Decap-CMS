@@ -1,0 +1,191 @@
+---
+---
+
+<!-- ============================================ -->
+<!--                Meet The Team                 -->
+<!-- ============================================ -->
+
+<section id="meet-us-348">
+    <div class="cs-container">
+        <div class="cs-content">
+            <span class="cs-topper">Meet Us</span>
+            <h2 class="cs-title">Our Team Members</h2>
+        </div>
+        <ul class="cs-card-group">
+            <li class="cs-item">
+                <!--Background Image-->
+                <picture class="cs-background">
+                    <source media="(max-width: 767px)" srcset="https://csimg.nyc3.digitaloceanspaces.com/Meet-Team/cleaner1.png">
+                    <source media="(min-width: 768px)" srcset="https://csimg.nyc3.digitaloceanspaces.com/Meet-Team/cleaner1.png">
+                    <img aria-hidden="true" loading="lazy" decoding="async" src="https://csimg.nyc3.digitaloceanspaces.com/Meet-Team/cleaner1.png" alt="cleaner" width="305" height="335">
+                    </picture>
+                <div class="cs-info">
+                    <span class="cs-name">Esther Howard</span>
+                    <span class="cs-job">CEO</span>
+                </div>
+            </li>
+            <li class="cs-item">
+                <!--Background Image-->
+                <picture class="cs-background">
+                    <source media="(max-width: 767px)" srcset="https://csimg.nyc3.digitaloceanspaces.com/Meet-Team/cleaner2.png">
+                    <source media="(min-width: 768px)" srcset="https://csimg.nyc3.digitaloceanspaces.com/Meet-Team/cleaner2.png">
+                    <img aria-hidden="true" loading="lazy" decoding="async" src="https://csimg.nyc3.digitaloceanspaces.com/Meet-Team/cleaner2.png" alt="cleaner" width="305" height="335">
+                    </picture>
+                <div class="cs-info">
+                    <span class="cs-name">Roser Fetherer</span>
+                    <span class="cs-job">Project Manager</span>
+                </div>
+            </li>
+            <li class="cs-item">
+                <!--Background Image-->
+                <picture class="cs-background">
+                    <source media="(max-width: 767px)" srcset="https://csimg.nyc3.digitaloceanspaces.com/Meet-Team/cleaner3.png">
+                    <source media="(min-width: 768px)" srcset="https://csimg.nyc3.digitaloceanspaces.com/Meet-Team/cleaner3.png">
+                    <img aria-hidden="true" loading="lazy" decoding="async" src="https://csimg.nyc3.digitaloceanspaces.com/Meet-Team/cleaner3.png" alt="cleaner" width="305" height="335">
+                    </picture>
+                <div class="cs-info">
+                    <span class="cs-name">Needse Zedd</span>
+                    <span class="cs-job">Cleaner</span>
+                </div>
+            </li>
+        </ul>
+        <a href="" class="cs-button-solid">View All Members</a>
+        <div class="cs-bubbles cs-bubbles-small" aria-hidden="true"></div>
+        <div class="cs-bubbles cs-bubbles-big" aria-hidden="true">
+            <span class="cs-bubbles-big2"></span>
+        </div>
+    </div>
+</section>
+
+<style lang="less">
+/* Component specific styles for MeetOurTeam 348 */
+#meet-us-348 .cs-container {
+    /* Container styles will inherit from global .container */
+}
+
+#meet-us-348 .cs-content {
+    text-align: center;
+    margin-bottom: clamp(2rem, 5vw, 3.5rem);
+}
+
+#meet-us-348 .cs-card-group {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: clamp(1.5rem, 4vw, 2.5rem);
+}
+
+#meet-us-348 .cs-item {
+    position: relative;
+    width: 305px;
+    height: 335px;
+}
+
+#meet-us-348 .cs-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+#meet-us-348 .cs-background img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+#meet-us-348 .cs-info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.8));
+    padding: clamp(1rem, 2.5vw, 1.5rem);
+    z-index: 2;
+    transition: all 0.3s;
+}
+
+#meet-us-348 .cs-name {
+    display: block;
+    font-size: clamp(1rem, 2.5vw, 1.2rem);
+    font-weight: 700;
+    color: var(--bodyTextColorWhite);
+    margin-bottom: 0.25rem;
+}
+
+#meet-us-348 .cs-job {
+    display: block;
+    font-size: clamp(0.875rem, 2vw, 1rem);
+    color: var(--bodyTextColorWhite);
+    opacity: 0.9;
+}
+
+#meet-us-348 .cs-button-solid {
+    margin: clamp(2rem, 5vw, 3rem) auto 0;
+    display: inline-block;
+}
+
+#meet-us-348 .cs-bubbles {
+    position: absolute;
+    z-index: -1;
+    opacity: 0.6;
+    pointer-events: none;
+}
+
+#meet-us-348 .cs-bubbles-small {
+    top: 10%;
+    right: 5%;
+    width: 50px;
+    height: 50px;
+    background: var(--primary);
+    border-radius: 50%;
+}
+
+#meet-us-348 .cs-bubbles-big {
+    bottom: 15%;
+    left: 8%;
+    width: 80px;
+    height: 80px;
+    background: var(--secondary);
+    border-radius: 50%;
+}
+
+#meet-us-348 .cs-bubbles-big2 {
+    position: absolute;
+    top: -20px;
+    right: -20px;
+    width: 40px;
+    height: 40px;
+    background: var(--primaryLight);
+    border-radius: 50%;
+}
+
+/* Dark mode support */
+body.dark-mode #meet-us-348 .cs-info {
+    background: linear-gradient(rgba(26,26,26,0.7), rgba(26,26,26,0.9));
+}
+
+body.dark-mode #meet-us-348 .cs-name,
+body.dark-mode #meet-us-348 .cs-job {
+    color: var(--bodyTextColorWhite);
+}
+
+/* Responsive adjustments */
+@media only screen and (max-width: 768px) {
+    #meet-us-348 .cs-card-group {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    #meet-us-348 .cs-item {
+        width: 100%;
+        max-width: 305px;
+        height: 280px;
+    }
+}
+</style>

@@ -1,0 +1,205 @@
+---
+const testimonials = [
+    {
+        name: "John Miller",
+        company: "Miller Construction",
+        rating: 5,
+        text: "At Stitch Cleaning Service, let us help you solve problems so that you can focus on your mission. We support businesses through periods of expansion, succession.",
+        image: "https://csimg.nyc3.digitaloceanspaces.com/Reviews/reviewer1.jpg"
+    },
+    {
+        name: "Sarah Johnson", 
+        company: "Johnson Consulting",
+        rating: 5,
+        text: "Professional cleaning service that exceeded our expectations. The team was thorough and efficient.",
+        image: "https://csimg.nyc3.digitaloceanspaces.com/Reviews/reviewer2.jpg"
+    },
+    {
+        name: "Michael Davis",
+        company: "Davis Tech Solutions", 
+        rating: 5,
+        text: "Outstanding service quality and attention to detail. Highly recommend for any commercial cleaning needs.",
+        image: "https://csimg.nyc3.digitaloceanspaces.com/Reviews/reviewer3.jpg"
+    }
+];
+---
+
+<section id="reviews-354">
+    <div class="cs-container">
+        <div class="cs-content">
+            <span class="cs-topper">Testimonials</span>
+            <h2 class="cs-title">Trusted by Thousand of People & Companies</h2>
+            <p class="cs-text">
+                At Stitch Cleaning Service, let us help you solve problems so that you can focus on your mission. We support businesses through periods of expansion, succession.
+            </p>
+            <ul class="cs-card-group">
+                {
+                    testimonials.map((testimonial, index) => (
+                        <li class="cs-item" set:html={index}>
+                            <picture class="cs-picture" aria-hidden="true">
+                                <source media="(max-width: 600px)" srcset={testimonial.image} />
+                                <source media="(min-width: 601px)" srcset={testimonial.image} />
+                                <img 
+                                    loading="lazy" 
+                                    decoding="async" 
+                                    src={testimonial.image} 
+                                    alt={`${testimonial.name} portrait`} 
+                                    width="305" 
+                                    height="305" 
+                                />
+                            </picture>
+                            <div class="cs-info">
+                                <span class="cs-name">{testimonial.name}</span>
+                                <span class="cs-company">{testimonial.company}</span>
+                                <img class="cs-rating" 
+                                     src="data:image/svg+xml,%3Csvg width='105' height='18' viewBox='0 0 105 18' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M9.04831 17.7404L8.72607 15.8289L8.72607 14.4487C8.72607 13.0684 8.30811 12.6078L5.61236 11.1882C3.30751 9.76859 1.66431 6.99606L1.66431 4.87497C1.66431 3.24575 2.15671 2.32553L2.15671 1.10511C2.15671 -0.415307 3.30751 -1.33542L5.61236 -2.75485C7.76115 -3.4352 9.04831 -3.4352V17.7404Z' fill='%23FDB812'/%3E%3C/svg%3E" 
+                                     alt="5 stars" 
+                                     width="105" 
+                                     height="18" 
+                                     aria-hidden="true" 
+                                />
+                            </div>
+                        </li>
+                    ))
+                }
+            </ul>
+        </div>
+    </div>
+</section>
+
+<style lang="less">
+/*-- -------------------------- */
+/*--          Reviews             --*/
+/*-- -------------------------- --*/
+
+/* Mobile - 360px */
+@media only screen and (min-width: 0rem) {
+    #reviews-354 {
+        padding: var(--sectionPadding);
+        background-color: #f7f7f7;
+
+        .cs-container {
+            width: 100%;
+            max-width: (1280/16rem);
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            /* 48px - 64px */
+            gap: clamp(3rem, 6vw, 4rem);
+        }
+
+        .cs-content {
+            /* set text align to left if content needs to be left aligned */
+            text-align: center;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            /* centers content horizontally, set to flex-start to left align */
+            align-items: center;
+        }
+
+        .cs-card-group {
+            padding: 0;
+            margin: 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax((300/16rem), 1fr));
+            gap: (24/16rem);
+            width: 100%;
+        }
+
+        .cs-item {
+            list-style: none;
+            width: 100%;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            border-radius: (8/16rem);
+            overflow: hidden;
+            background-color: #fff;
+            transition: box-shadow 0.3s, transform 0.3s;
+
+            &:hover {
+                transform: translateY((-8/16rem));
+                box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+            }
+        }
+
+        .cs-picture {
+            width: (140/16rem);
+            height: (140/16rem);
+            border-radius: 50%;
+            display: block;
+            margin: 0 0 (24/16rem) 0;
+        }
+
+        .cs-info {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding: 0 (24/16rem) (32/16rem) (24/16rem);
+            width: 100%;
+        }
+
+        .cs-name {
+            font-size: (20/16rem);
+            font-weight: 700;
+            line-height: 1.2em;
+            color: var(--headerColor);
+            display: block;
+            margin-bottom: (4/16rem);
+        }
+
+        .cs-company {
+            font-size: (16/16rem);
+            font-weight: 400;
+            line-height: 1.5em;
+            color: var(--bodyTextColor);
+            display: block;
+        }
+
+        .cs-rating {
+            width: (105/16rem);
+            height: (18/16rem);
+            margin-top: (12/16rem);
+        }
+    }
+}
+
+/* Tablet - 768px */
+@media only screen and (min-width: 48rem) {
+    #reviews-354 {
+        .cs-card-group {
+            grid-template-columns: repeat(3, 1fr);
+        }
+
+        .cs-info {
+            padding: 0 (24/16rem) (40/16rem) (24/16rem);
+        }
+    }
+}
+
+/* Dark Mode */
+@media only screen and (min-width: 0rem) {
+    body.dark-mode {
+        #reviews-354 {
+            background-color: var(--dark);
+
+            .cs-item {
+                background-color: var(--medium);
+            }
+
+            .cs-name {
+                color: var(--bodyTextColorWhite);
+            }
+
+            .cs-company {
+                color: var(--bodyTextColorWhite);
+            }
+        }
+    }
+}
+</style>

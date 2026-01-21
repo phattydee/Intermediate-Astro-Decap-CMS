@@ -1,0 +1,159 @@
+---
+---
+
+<script src="/scripts/faq-accordion.js" defer></script>
+
+<!-- ============================================ -->
+<!--                  FAQ                       -->
+<!-- ============================================ -->
+
+<section id="faq-351">
+    <div class="cs-container">
+        <div class="cs-content">
+            <span class="cs-topper">Asked questions</span>
+            <h2 class="cs-title">Frequently Asked Questions</h2>
+            <ul class="cs-faq-group">
+                <!-- Active class added as default -->
+                <li class="cs-faq-item active">
+                    <button class="cs-button">
+                        <span class="cs-button-text">How much are house cleaning services?</span>
+                    </button>
+                    <p class="cs-item-p">Some Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sit convallis nunc neque, bibendum pulvinar vitae commodo velit. Proin diam tortor sed malesuada nunc, habitant. Dignissim ipsum porta enim, magna urna, quam. </p>
+                </li>
+                <li class="cs-faq-item">
+                    <button class="cs-button">
+                        <span class="cs-button-text">What is your plan cancellation policy?</span>
+                    </button>
+                    <p class="cs-item-p">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sit convallis nunc neque, bibendum pulvinar vitae commodo velit. Proin diam tortor sed malesuada nunc, habitant. Dignissim ipsum porta enim, magna urna, quam. </p>
+                </li>
+                <li class="cs-faq-item">
+                    <button class="cs-button">
+                        <span class="cs-button-text">How long should a house cleaning take?</span>
+                    </button>
+                    <p class="cs-item-p">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sit convallis nunc neque, bibendum pulvinar vitae commodo velit. Proin diam tortor sed malesuada nunc, habitant. Dignissim ipsum porta enim, magna urna, quam. </p>
+                </li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<style lang="less">
+/* Component specific styles for FAQ 351 - Standard */
+#faq-351 .cs-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+#faq-351 .cs-content {
+    text-align: center;
+}
+
+#faq-351 .cs-faq-group {
+    list-style: none;
+    padding: 0;
+    margin: 2rem 0 0 0;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#faq-351 .cs-faq-item {
+    margin-bottom: 1rem;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+#faq-351 .cs-faq-item:hover {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: var(--primary);
+}
+
+#faq-351 .cs-button {
+    background: none;
+    border: none;
+    padding: 1.5rem 2rem;
+    width: 100%;
+    cursor: pointer;
+    position: relative;
+    text-align: left;
+}
+
+#faq-351 .cs-button-text {
+    font-size: var(--bodyFontSize);
+    font-weight: 600;
+    color: var(--headerColor);
+    display: block;
+    transition: color 0.3s;
+    position: relative;
+}
+
+#faq-351 .cs-button:hover .cs-button-text {
+    color: var(--primary);
+}
+
+#faq-351 .cs-item-p {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out, padding 0.3s ease-out;
+    color: var(--bodyTextColor);
+    line-height: 1.6;
+    text-align: left;
+    padding: 0 2rem;
+}
+
+#faq-351 .cs-faq-item.active .cs-item-p {
+    max-height: 500px;
+    padding: 1.5rem 2rem 2rem 2rem;
+}
+
+#faq-351 .cs-faq-item.active .cs-button-text {
+    color: var(--primary);
+}
+
+/* Dark mode support */
+body.dark-mode #faq-351 .cs-faq-item {
+    background: rgba(255, 255, 255, 0.02);
+    border-color: rgba(255, 255, 255, 0.05);
+}
+
+body.dark-mode #faq-351 .cs-faq-item:hover {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: var(--primary);
+}
+
+body.dark-mode #faq-351 .cs-button-text {
+    color: var(--bodyTextColorWhite);
+}
+
+body.dark-mode #faq-351 .cs-button:hover .cs-button-text {
+    color: var(--primary);
+}
+
+body.dark-mode #faq-351 .cs-item-p {
+    color: var(--bodyTextColorWhite);
+    opacity: 0.9;
+}
+
+/* Responsive adjustments */
+@media only screen and (max-width: 768px) {
+    #faq-351 .cs-container {
+        padding: 0 1rem;
+    }
+    
+    #faq-351 .cs-faq-group {
+        margin: 1rem 0 0 0;
+    }
+    
+    #faq-351 .cs-button {
+        padding: 1rem 1.5rem;
+    }
+    
+    #faq-351 .cs-faq-item.active .cs-item-p {
+        max-height: 400px;
+        padding: 1rem 1.5rem 1.5rem 1.5rem;
+    }
+}
+</style>

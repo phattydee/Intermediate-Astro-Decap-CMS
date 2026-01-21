@@ -1,0 +1,184 @@
+---
+---
+
+<script src="/scripts/faq-accordion.js" defer></script>
+
+<!-- ============================================ -->
+<!--                  FAQ                       -->
+<!-- ============================================ -->
+
+<section id="faq-349">
+    <div class="cs-container">
+        <div class="cs-left">
+            <!--Big Image-->
+            <picture class="cs-picture cs-picture1" aria-hidden="true">
+                <source media="(max-width: 600px)" srcset="https://csimg.nyc3.digitaloceanspaces.com/SideBySide/cleaner3-m.jpg">
+                <source media="(min-width: 601px)" srcset="https://csimg.nyc3.digitaloceanspaces.com/SideBySide/cleaner3.jpg">
+                <img loading="lazy" decoding="async" src="https://csimg.nyc3.digitaloceanspaces.com/SideBySide/cleaner3.jpg" alt="cleaning supplies" width="672" height="672">
+            </picture>
+            <!--Medium Image-->
+            <picture class="cs-picture cs-picture2" aria-hidden="true">
+                <source media="(max-width: 600px)" srcset="https://csimg.nyc3.digitaloceanspaces.com/SideBySide/cleaning2-m.jpg">
+                <source media="(min-width: 601px)" srcset="https://csimg.nyc3.digitaloceanspaces.com/SideBySide/cleaning2.jpg">
+                <img loading="lazy" decoding="async" src="https://csimg.nyc3.digitaloceanspaces.com/SideBySide/cleaning2.jpg" alt="cleaning supplies" width="300" height="300">
+            </picture>
+            <!--Small Image-->
+            <picture class="cs-picture cs-picture3" aria-hidden="true">
+                <source media="(max-width: 600px)" srcset="https://csimg.nyc3.digitaloceanspaces.com/SideBySide/cleaning1-m.jpg">
+                <source media="(min-width: 601px)" srcset="https://csimg.nyc3.digitaloceanspaces.com/SideBySide/cleaning1.jpg">
+                <img loading="lazy" decoding="async" src="https://csimg.nyc3.digitaloceanspaces.com/SideBySide/cleaning1.jpg" alt="cleaner" width="200" height="200">
+            </picture>
+        </div>
+        <div class="cs-content">
+            <span class="cs-topper">Asked questions</span>
+            <h2 class="cs-title">Frequently Asked Questions</h2>
+            <ul class="cs-faq-group">
+                <!-- Active class added as default -->
+                <li class="cs-faq-item active">
+                    <button class="cs-button">
+                        <span class="cs-button-text">How much are house cleaning services?</span>
+                    </button>
+                    <p class="cs-item-p">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sit convallis nunc neque, bibendum pulvinar vitae commodo velit. Proin diam tortor sed malesuada nunc, habitant. Dignissim ipsum porta enim, magna urna, quam. </p>
+                </li>
+                <li class="cs-faq-item">
+                    <button class="cs-button">
+                        <span class="cs-button-text">What is your plan cancellation policy?</span>
+                    </button>
+                    <p class="cs-item-p">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sit convallis nunc neque, bibendum pulvinar vitae commodo velit. Proin diam tortor sed malesuada nunc, habitant. Dignissim ipsum porta enim, magna urna, quam. </p>
+                </li>
+                <li class="cs-faq-item">
+                    <button class="cs-button">
+                        <span class="cs-button-text">How long should a house cleaning take?</span>
+                    </button>
+                    <p class="cs-item-p">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sit convallis nunc neque, bibendum pulvinar vitae commodo velit. Proin diam tortor sed malesuada nunc, habitant. Dignissim ipsum porta enim, magna urna, quam. </p>
+                </li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<style lang="less">
+/* Component specific styles for FAQ 349 - Side By Side */
+#faq-349 .cs-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#faq-349 .cs-left {
+    width: 48%;
+    position: relative;
+}
+
+#faq-349 .cs-picture1 {
+    width: 80%;
+    height: auto;
+    margin-bottom: -4rem;
+}
+
+#faq-349 .cs-picture2 {
+    width: 60%;
+    height: auto;
+    margin-bottom: -2rem;
+    margin-left: auto;
+}
+
+#faq-349 .cs-picture3 {
+    width: 40%;
+    height: auto;
+    margin-left: auto;
+}
+
+#faq-349 .cs-content {
+    width: 48%;
+}
+
+#faq-349 .cs-faq-group {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+#faq-349 .cs-faq-item {
+    margin-bottom: 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 1rem;
+}
+
+#faq-349 .cs-button {
+    background: none;
+    border: none;
+    padding: 0;
+    text-align: left;
+    width: 100%;
+    cursor: pointer;
+    margin-bottom: 0.5rem;
+}
+
+#faq-349 .cs-button-text {
+    font-size: var(--bodyFontSize);
+    font-weight: 600;
+    color: var(--headerColor);
+    text-align: left;
+    display: block;
+    padding: 0.75rem 0;
+    transition: color 0.3s;
+}
+
+#faq-349 .cs-button:hover .cs-button-text {
+    color: var(--primary);
+}
+
+#faq-349 .cs-item-p {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out, padding 0.3s ease-out;
+    color: var(--bodyTextColor);
+    line-height: 1.5;
+    padding: 0 1rem;
+}
+
+#faq-349 .cs-faq-item.active .cs-item-p {
+    max-height: 200px;
+    padding: 1rem;
+}
+
+/* Dark mode support */
+body.dark-mode #faq-349 .cs-faq-item {
+    border-bottom-color: rgba(255, 255, 255, 0.05);
+}
+
+body.dark-mode #faq-349 .cs-button-text {
+    color: var(--bodyTextColorWhite);
+}
+
+body.dark-mode #faq-349 .cs-button:hover .cs-button-text {
+    color: var(--primary);
+}
+
+body.dark-mode #faq-349 .cs-item-p {
+    color: var(--bodyTextColorWhite);
+    opacity: 0.8;
+}
+
+/* Responsive adjustments */
+@media only screen and (max-width: 768px) {
+    #faq-349 .cs-container {
+        flex-direction: column;
+        gap: 3rem;
+    }
+    
+    #faq-349 .cs-left,
+    #faq-349 .cs-content {
+        width: 100%;
+    }
+    
+    #faq-349 .cs-left {
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        margin-bottom: 2rem;
+    }
+}
+</style>
