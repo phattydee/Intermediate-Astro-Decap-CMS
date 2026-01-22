@@ -1,0 +1,7 @@
+version: "3.9"
+services:
+  astro-site:
+    build: .
+    ports:
+      - "88:80"
+      
