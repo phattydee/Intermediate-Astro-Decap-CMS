@@ -11,8 +11,8 @@
 ✅ https://codestitch.app/app/dashboard/stitches/339 (SBS339.astro)
 ✅ https://codestitch.app/app/dashboard/stitches/340 (Stats340.astro)
 ✅ https://codestitch.app/app/dashboard/stitches/341 (Services341_344.astro)
-✅ (Services342.astro) https://codestitch.app/app/dashboard/stitches/342
-✅ (Services343.astro) https://codestitch.app/app/dashboard/stitches/343
+✅ https://codestitch.app/app/dashboard/stitches/342 (Services342.astro)
+✅ https://codestitch.app/app/dashboard/stitches/343 (Services343.astro)
 ✅ https://codestitch.app/app/dashboard/stitches/344 (Services341_344.astro)
 ✅ https://codestitch.app/app/dashboard/stitches/345
 ✅ https://codestitch.app/app/dashboard/stitches/347 (MeetUs347.astro)
