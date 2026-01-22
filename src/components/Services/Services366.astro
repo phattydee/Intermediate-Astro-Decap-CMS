@@ -1,56 +1,88 @@
 ---
+
 ---
 
-<!-- ============================================ -->
-<!--                  Services                    -->
-<!-- ============================================ -->
-
+<!-- ============================================ --><!--                  Services                    --><!-- ============================================ -->
 <section id="services-366">
     <div class="cs-container">
         <div class="cs-content">
             <span class="cs-topper">Our Services</span>
-            <h2 class="cs-title">Provide Worldwide Service For Good Customers</h2>
+            <h2 class="cs-title">
+                Provide Worldwide Service For Good Customers
+            </h2>
             <p class="cs-text">
-                At Stitch Cleaning Service, let us help you solve problems so that you can focus on your mission. We support businesses through periods of expansion, succession.
+                At Stitch Cleaning Service, let us help you solve problems so
+                that you can focus on your mission. We support businesses
+                through periods of expansion, succession.
             </p>
         </div>
         <ul class="cs-card-group">
             <li class="cs-item">
                 <a href="" class="cs-link">
                     <div class="cs-icon-wrapper">
-                        <img class="cs-icon" aria-hidden="true" loading="lazy" decoding="async" src="https://csimg.nyc3.digitaloceanspaces.com/Services/kitchen-blue.svg" alt="icon" width="48" height="48">
+                        <img
+                            class="cs-icon"
+                            aria-hidden="true"
+                            loading="lazy"
+                            decoding="async"
+                            src="https://csimg.nyc3.digitaloceanspaces.com/Services/kitchen-blue.svg"
+                            alt="icon"
+                            width="48"
+                            height="48"
+                        />
                         <!--Create a span to make more bubbles with pesudo elements-->
                         <span class="cs-bubble" aria-hidden="true"></span>
                     </div>
                     <h3 class="cs-h3">Kitchen Cleaning</h3>
                     <p class="cs-item-text">
-                        We’ve helped thousands of organizations transform to become relevant of helped thousands.
+                        We’ve helped thousands of organizations transform to
+                        become relevant of helped thousands.
                     </p>
                 </a>
             </li>
             <li class="cs-item">
                 <a href="" class="cs-link">
                     <div class="cs-icon-wrapper">
-                        <img class="cs-icon" aria-hidden="true" loading="lazy" decoding="async" src="https://csimg.nyc3.digitaloceanspaces.com/Services/rug-blue.svg" alt="icon" width="48" height="48">
+                        <img
+                            class="cs-icon"
+                            aria-hidden="true"
+                            loading="lazy"
+                            decoding="async"
+                            src="https://csimg.nyc3.digitaloceanspaces.com/Services/rug-blue.svg"
+                            alt="icon"
+                            width="48"
+                            height="48"
+                        />
                         <!--Create a span to make more bubbles with pesudo elements-->
                         <span class="cs-bubble" aria-hidden="true"></span>
                     </div>
                     <h3 class="cs-h3">Carpet Cleaning</h3>
                     <p class="cs-item-text">
-                        We’ve helped thousands of organizations transform to become relevant of helped thousands.
+                        We’ve helped thousands of organizations transform to
+                        become relevant of helped thousands.
                     </p>
                 </a>
             </li>
             <li class="cs-item">
                 <a href="" class="cs-link">
                     <div class="cs-icon-wrapper">
-                        <img class="cs-icon" aria-hidden="true" loading="lazy" decoding="async" src="https://csimg.nyc3.digitaloceanspaces.com/Services/house-blue.svg" alt="icon" width="48" height="48">
+                        <img
+                            class="cs-icon"
+                            aria-hidden="true"
+                            loading="lazy"
+                            decoding="async"
+                            src="https://csimg.nyc3.digitaloceanspaces.com/Services/house-blue.svg"
+                            alt="icon"
+                            width="48"
+                            height="48"
+                        />
                         <!--Create a span to make more bubbles with pesudo elements-->
                         <span class="cs-bubble" aria-hidden="true"></span>
                     </div>
                     <h3 class="cs-h3">House Cleaning</h3>
                     <p class="cs-item-text">
-                        We’ve helped thousands of organizations transform to become relevant of helped thousands.
+                        We’ve helped thousands of organizations transform to
+                        become relevant of helped thousands.
                     </p>
                 </a>
             </li>
@@ -60,104 +92,106 @@
 </section>
 
 <style>
-/*-- -------------------------- -->
+    /*-- -------------------------- -->
 <---          Services          -->
 <--- -------------------------- -*/
 
-/* Mobile - 360px */
-@media only screen and (min-width: 0rem) {
-    #services-366 {
-        padding: var(--sectionPadding);
-    }
-    @keyframes floatAnimation2 {
-        0% {
-            transform: translateY(0);
+    /* Mobile - 360px */
+    @media only screen and (min-width: 0rem) {
+        #services-366 {
+            padding: var(--sectionPadding);
         }
-        50% {
-            transform: translateY(-4px);
+        @keyframes floatAnimation2 {
+            0% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-4px);
+            }
+            70% {
+                transform: translateY(4px);
+            }
+            100% {
+                transform: translateY(0);
+            }
         }
-        70% {
-            transform: translateY(4px);
+        @keyframes InAndOut {
+            0% {
+                transform: translateY(3.75rem) scale(1);
+                opacity: 1;
+            }
+            30% {
+                transform: translateY(1.875rem) scale(0.8);
+                opacity: 1;
+            }
+            60% {
+                transform: translateY(0.625rem) scale(0.5);
+                opacity: 0.2;
+            }
+            100% {
+                transform: translateY(0rem) scale(0.2);
+                opacity: 0;
+            }
         }
-        100% {
-            transform: translateY(0);
+        @keyframes InAndOut2 {
+            0% {
+                transform: translateY(4.375rem) scale(1);
+                opacity: 1;
+            }
+            30% {
+                transform: translateY(2.5rem) scale(0.8);
+                opacity: 1;
+            }
+            60% {
+                transform: translateY(1.25rem) scale(0.6);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(0rem) scale(0.4);
+                opacity: 0;
+            }
         }
-    }
-    @keyframes InAndOut {
-        0% {
-            transform: translateY(3.75rem) scale(1);
-            opacity: 1;
+        #services-366 .cs-container {
+            width: 100%;
+            max-width: 80rem;
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            /* 48px - 64px */
+            gap: clamp(3rem, 6vw, 4rem);
         }
-        30% {
-            transform: translateY(1.875rem) scale(0.8);
-            opacity: 1;
+        #services-366 .cs-content {
+            /* set text align to left if content needs to be left aligned */
+            text-align: center;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            /* centers content horizontally, set to flex-start to left align */
+            align-items: center;
         }
-        60% {
-            transform: translateY(0.625rem) scale(0.5);
-            opacity: 0.2;
-        }
-        100% {
-            transform: translateY(0rem) scale(0.2);
-            opacity: 0;
-        }
-    }
-    @keyframes InAndOut2 {
-        0% {
-            transform: translateY(4.375rem) scale(1);
-            opacity: 1;
-        }
-        30% {
-            transform: translateY(2.5rem) scale(0.8);
-            opacity: 1;
-        }
-        60% {
-            transform: translateY(1.25rem) scale(0.6);
-            opacity: 1;
-        }
-        100% {
-            transform: translateY(0rem) scale(0.4);
-            opacity: 0;
-        }
-    }
-    #services-366 .cs-container {
-        width: 100%;
-        max-width: 80rem;
-        margin: auto;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        /* 48px - 64px */
-        gap: clamp(3rem, 6vw, 4rem);
-    }
-    #services-366 .cs-content {
-        /* set text align to left if content needs to be left aligned */
-        text-align: center;
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        /* centers content horizontally, set to flex-start to left align */
-        align-items: center;
-    }
 
-    #services-366 .cs-card-group {
-        width: 100%;
-        margin: 0;
-        padding: 0;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-wrap: wrap;
-        flex-direction: column;
-        /* 16px - 20px */
-        column-gap: clamp(1rem, 2vw, 1.25rem);
+        #services-366 .cs-card-group {
+            width: 100%;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            flex-direction: column;
+            /* 16px - 20px */
+            column-gap: clamp(1rem, 2vw, 1.25rem);
+        }
+        #services-366 .cs-item {
+            list-style: none;
+            width: 100%;
+            max-width: 31.25rem;
+            /* 20px - 40px top & bottom */
+            /* 16px - 32px left & right */
+            padding: clamp(1.25rem, 3.5vw, 2.5rem) clamp(1rem, 2.5vw, 2rem);
+            border-radius: 1rem;
+            border: 1px solid #e8e8e8;
+        }
     }
-    #services-366 .cs-item {
-        list-style: none;
-        width: 100%;
-        max-width: 31.25rem;
-        /* 20px - 40px top & bottom */
-        /* 16px - 32px left & right */
-        padding: clamp(1.25rem, 3.5vw, 2.5rem) clamp(1rem, 2.5vw, 2rem);
-        border-radius: 1rem;
-        border: 1px solid #e8e8e8;
 </style>
