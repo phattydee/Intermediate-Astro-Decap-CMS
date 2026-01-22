@@ -1,0 +1,264 @@
+---
+
+---
+
+<!-- ============================================ --><!--            SBSR362              --><!-- ============================================ -->
+<!-- ============================================ -->
+<!--            Side By Side Reverse              -->
+<!-- ============================================ -->
+<section id="sbsr-362">
+<div class="cs-container">
+<div class="cs-image-group">
+<!-- SVG Paint Splash-->
+<img class="cs-splash" decoding="async" src="https://csimg.nyc3.digitaloceanspaces.com/SideBySide/paint-splash2.svg" alt="paint graphic" width="785" height="759">
+<!-- Maid Picture -->
+<!-- To make your own crops of people, use this tool to remove the backgorund of images https://www.remove.bg/ -->
+<picture class="cs-person">
+<source media="(max-width: 600px)" srcset="https://csimg.nyc3.digitaloceanspaces.com/SideBySide/cleaner2.png">
+<source media="(min-width: 601px)" srcset="https://csimg.nyc3.digitaloceanspaces.com/SideBySide/cleaner2.png">
+<img loading="lazy" decoding="async" src="https://csimg.nyc3.digitaloceanspaces.com/SideBySide/cleaner2.png" alt="maid" width="743" height="759" aria-hidden="true">
+</picture>
+</div>
+<div class="cs-content">
+<span class="cs-topper">About Us</span>
+<h2 class="cs-title">We Provide Best Cleaning Service Provider</h2>
+<p class="cs-text">
+Our mission is not only to meet your expectations but to exceed them, we also provide many more like condos and apartment cleaning. Our unique 22-Step Healthy Touch Deep Cleaning System will ensure you’ll receive a healthy, thorough housecleaning with every visit. We use cleaning products that are friendly to the environment.
+</p>
+<ul class="cs-ul">
+<li class="cs-li">Praesent feugiat sem mattis.</li>
+<li class="cs-li">Praesent feugiat sem mattis.</li>
+<li class="cs-li">Praesent feugiat sem mattis.</li>
+<li class="cs-li">Praesent feugiat sem mattis.</li>
+</ul>
+<a href="" class="cs-button-solid">Contact Us</a>
+</div>
+</div>
+</section>
+
+
+<style lang="less">
+    /*-- -------------------------- -->
+<---   Side By Side Reverse     -->
+<--- -------------------------- -*/
+
+/* Mobile - 360px */
+@media only screen and (min-width: 0rem) {
+    #sbsr-362 {
+        padding: var(--sectionPadding);
+        overflow: hidden;
+
+        .cs-container {
+            width: 100%;
+            /* changes to 1280px at desktop */
+            max-width: (550/16rem);
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            /* 48px - 64px */
+            gap: clamp(3rem, 6vw, 4rem);
+            position: relative;
+        }
+
+        .cs-content {
+            /* set text align to left if content needs to be left aligned */
+            text-align: left;
+            width: 100%;
+            max-width: (522/16rem);
+            display: flex;
+            flex-direction: column;
+            /* centers content horizontally, set to flex-start to left align */
+            align-items: flex-start;
+        }
+
+        .cs-text {
+            margin-bottom: (16/16rem);
+            &:last-of-type {
+                margin-bottom: (32/16rem);
+            }
+        }
+
+        .cs-ul {
+            width: 100%;
+            margin: 0 0 (32/16rem) 0;
+            padding: 0 0 0 (20/16rem);
+            /* prevents padding and border from affecting height and width */
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: (8/16rem);
+        }
+
+        .cs-li {
+            font-size: (16/16rem);
+            line-height: 1.5em;
+            list-style: none;
+            margin-right: 0;
+            color: var(--bodyTextColor);
+            position: relative;
+
+            &:before {
+                /* bullets */
+                content: "";
+                width: (4/16rem);
+                height: (4/16rem);
+                border-radius: 50%;
+                background: currentColor;
+                opacity: 1;
+                position: absolute;
+                display: block;
+                top: (9/16rem);
+                left: (-15/16rem);
+            }
+        }
+
+        .cs-button-solid {
+            font-size: (16/16rem);
+            /* 46px - 56px */
+            line-height: clamp(2.875rem, 5.5vw, 3.5rem);
+            text-decoration: none;
+            font-weight: 700;
+            text-align: center;
+            margin: 0;
+            color: #fff;
+            min-width: (150/16rem);
+            padding: 0 (24/16rem);
+            background-color: var(--primary);
+            border-radius: (4/16rem);
+            display: inline-block;
+            position: relative;
+            z-index: 1;
+            /* prevents padding from adding to the width */
+            box-sizing: border-box;
+
+            &:before {
+                content: "";
+                position: absolute;
+                height: 100%;
+                width: 0%;
+                background: #000;
+                opacity: 1;
+                top: 0;
+                left: 0;
+                z-index: -1;
+                border-radius: (4/16rem);
+                transition: width 0.3s;
+            }
+
+            &:hover {
+                &:before {
+                    width: 100%;
+                }
+            }
+        }
+
+        .cs-image-group {
+            /* scale down the whole section */
+            font-size: ~"min(1.6vw, .6em)";
+            /* aligns the .cs-image-group to the right */
+            text-align: right;
+            /* using ems so we can scale this container with a font size */
+            width: auto;
+            min-width: (600/16em);
+            /* changes auto at desktop */
+            height: (759/16em);
+            position: relative;
+        }
+
+        .cs-splash {
+            position: absolute;
+            width: 120%;
+            height: auto;
+            display: block;
+            top: (20/16em);
+            left: 50%;
+            transform: translateX(-54%);
+        }
+
+        .cs-person {
+            height: 100%;
+            width: auto;
+            /* allows text align to move it left or right */
+            display: inline-flex;
+            align-items: flex-end;
+            justify-content: center;
+            position: relative;
+
+            img {
+                width: auto;
+                height: 100%;
+                margin: 0;
+                display: block;
+            }
+        }
+    }
+}
+
+/* Small Desktop - 1024px */
+@media only screen and (min-width: 64rem) {
+    #sbsr-362 {
+        .cs-container {
+            max-width: (1280/16rem);
+            flex-direction: row;
+            justify-content: space-between;
+            position: relative;
+        }
+
+        .cs-content {
+            width: 50%;
+        }
+
+        .cs-image-group {
+            font-size: ~"min(1vw, 1em)";
+            flex: none;
+            /* sends it to the right in the 2nd position */
+            order: 2;
+        }
+    }
+}
+
+/* Large Desktop 1300px */
+@media only screen and (min-width: 81.25rem) {
+    #sbsr-362 {
+        .cs-image-group {
+            font-size: ~"min(1.2vw, 1em)";
+            height: auto;
+            margin-right: (0/16em);
+            display: flex;
+            /* pushes person image to the right of the container */
+            justify-content: flex-end;
+            /* pushed person image to the bottom of the container */
+            align-items: flex-end;
+            position: absolute;
+            left: 50%;
+            top: 0;
+            /* same amount as the padding bottom on the #sbsr*/
+            bottom: (-100/16rem);
+        }
+
+        .cs-content {
+            /* pushes it to the right side of the container */
+            margin-right: auto;
+        }
+    }
+}
+
+/* Dark Mode */
+@media only screen and (min-width: 0rem) {
+    body.dark-mode {
+        #sbsr-362 {
+            .cs-topper {
+                color: var(--secondary);
+            }
+
+            .cs-title,
+            .cs-text,
+            .cs-li {
+                color: var(--bodyTextColorWhite);
+            }
+        }
+    }
+}
+</style>

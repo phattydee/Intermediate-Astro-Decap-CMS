@@ -1,0 +1,258 @@
+---
+
+---
+
+<!-- ============================================ --><!--            MeetUs382              --><!-- ============================================ -->
+<!-- ============================================ -->
+<!--                Meet The Team                 -->
+<!-- ============================================ -->
+<section id="meet-382">
+<div class="cs-container">
+<div class="cs-content">
+<span class="cs-topper">Our Team</span>
+<h2 class="cs-title">Our Team Members</h2>
+<p class="cs-text">
+At Stitch Cleaning Service, let us help you solve problems so that you can focus on your mission. We support businesses through periods of expansion, succession.
+</p>
+</div>
+<ul class="cs-card-group">
+<li class="cs-item">
+<!--SVG Graphic-->
+<img class="cs-graphic" aria-hidden="true" decoding="async" src="https://csimg.nyc3.digitaloceanspaces.com/Meet-Team/blue-graphic.svg" width="305" height="467" alt="svg graphic">
+<!--Member-->
+<picture class="cs-picture">
+<source media="(max-width: 600px)" srcset="https://csimg.nyc3.digitaloceanspaces.com/Meet-Team/cleaner5.png">
+<source media="(min-width: 601px)" srcset="https://csimg.nyc3.digitaloceanspaces.com/Meet-Team/cleaner5.png">
+<img loading="lazy" decoding="async" src="https://csimg.nyc3.digitaloceanspaces.com/Meet-Team/cleaner5.png" alt="member" width="304" height="408" aria-hidden="true">
+</picture>
+<span class="cs-name">Jenny Wilson</span>
+<span class="cs-job">Project Manager</span>
+</li>
+<li class="cs-item">
+<!--SVG Graphic-->
+<img class="cs-graphic" aria-hidden="true" decoding="async" src="https://csimg.nyc3.digitaloceanspaces.com/Meet-Team/blue-graphic.svg" width="305" height="467" alt="svg graphic">
+<!--Member-->
+<picture class="cs-picture">
+<source media="(max-width: 600px)" srcset="https://csimg.nyc3.digitaloceanspaces.com/Meet-Team/cleaner6.png">
+<source media="(min-width: 601px)" srcset="https://csimg.nyc3.digitaloceanspaces.com/Meet-Team/cleaner6.png">
+<img loading="lazy" decoding="async" src="https://csimg.nyc3.digitaloceanspaces.com/Meet-Team/cleaner6.png" alt="member" width="304" height="408" aria-hidden="true">
+</picture>
+<span class="cs-name">Guy Hawkins</span>
+<span class="cs-job">Project Manager</span>
+</li>
+<li class="cs-item">
+<!--SVG Graphic-->
+<img class="cs-graphic" aria-hidden="true" decoding="async" src="https://csimg.nyc3.digitaloceanspaces.com/Meet-Team/blue-graphic.svg" width="305" height="467" alt="svg graphic">
+<!--Member-->
+<picture class="cs-picture">
+<source media="(max-width: 600px)" srcset="https://csimg.nyc3.digitaloceanspaces.com/Meet-Team/cleaner7.png">
+<source media="(min-width: 601px)" srcset="https://csimg.nyc3.digitaloceanspaces.com/Meet-Team/cleaner7.png">
+<img loading="lazy" decoding="async" src="https://csimg.nyc3.digitaloceanspaces.com/Meet-Team/cleaner7.png" alt="member" width="304" height="408" aria-hidden="true">
+</picture>
+<span class="cs-name">Annette Barns</span>
+<span class="cs-job">Cleaner</span>
+</li>
+<li class="cs-item">
+<!--SVG Graphic-->
+<img class="cs-graphic" aria-hidden="true" decoding="async" src="https://csimg.nyc3.digitaloceanspaces.com/Meet-Team/blue-graphic.svg" width="305" height="467" alt="svg graphic">
+<!--Member-->
+<picture class="cs-picture">
+<source media="(max-width: 600px)" srcset="https://csimg.nyc3.digitaloceanspaces.com/Meet-Team/cleaner8.png">
+<source media="(min-width: 601px)" srcset="https://csimg.nyc3.digitaloceanspaces.com/Meet-Team/cleaner8.png">
+<img loading="lazy" decoding="async" src="https://csimg.nyc3.digitaloceanspaces.com/Meet-Team/cleaner8.png" alt="member" width="304" height="408" aria-hidden="true">
+</picture>
+<span class="cs-name">Dianne Russell</span>
+<span class="cs-job">Cleaner</span>
+</li>
+</ul>
+<a href="" class="cs-button-solid">View All Members</a>
+</div>
+</section>
+
+
+<style lang="less">
+    /*-- -------------------------- -->
+<---            Meet            -->
+<--- -------------------------- -*/
+
+/* Mobile - 360px */
+@media only screen and (min-width: 0rem) {
+    #meet-382 {
+        padding: var(--sectionPadding);
+
+        .cs-container {
+            width: 100%;
+            /* changes to 1280px at desktop */
+            max-width: (630/16rem);
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            /* 48px - 64px */
+            gap: clamp(3rem, 6vw, 4rem);
+        }
+
+        .cs-content {
+            /* set text align to left if content needs to be left aligned */
+            text-align: center;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            /* centers content horizontally, set to flex-start to left align */
+            align-items: center;
+        }
+
+        .cs-card-group {
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            /* 16px - 20px */
+            gap: clamp(1rem, 1.5vw, 1.25rem);
+        }
+
+        .cs-item {
+            list-style: none;
+            width: 100%;
+            max-width: (305/16rem);
+            /* creates extra space at the top for the graphic to fit */
+            padding-top: (64/16rem);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+
+            &:hover {
+                .cs-graphic {
+                    transform: scale(1.1);
+                }
+            }
+        }
+
+        .cs-graphic {
+            width: 100%;
+            height: auto;
+            position: absolute;
+            /* push from the bottom so it doens't show up under the memeber image */
+            bottom: (64/16rem);
+            left: 0;
+            z-index: -1;
+            transition: transform 0.6s;
+        }
+
+        .cs-picture {
+            width: auto;
+            height: auto;
+            margin-bottom: (16/16rem);
+            display: flex;
+            /* pushes image to bottom of picture element */
+            align-items: flex-end;
+
+            img {
+                width: 100%;
+                height: auto;
+            }
+        }
+
+        .cs-name {
+            font-size: (20/16rem);
+            line-height: 1.2em;
+            font-weight: 700;
+            margin: 0;
+            color: var(--headerColor);
+            display: block;
+        }
+
+        .cs-job {
+            font-size: (16/16rem);
+            line-height: 1.5em;
+            margin: 0;
+            color: var(--bodyTextColor);
+            display: block;
+        }
+
+        .cs-button-solid {
+            font-size: (16/16rem);
+            /* 46px - 56px */
+            line-height: clamp(2.875rem, 5.5vw, 3.5rem);
+            text-decoration: none;
+            font-weight: 700;
+            text-align: center;
+            margin: 0;
+            color: #fff;
+            min-width: (150/16rem);
+            padding: 0 (24/16rem);
+            background-color: var(--primary);
+            border-radius: (4/16rem);
+            display: inline-block;
+            position: relative;
+            z-index: 1;
+            /* prevents padding from adding to the width */
+            box-sizing: border-box;
+
+            &:before {
+                content: "";
+                position: absolute;
+                height: 100%;
+                width: 0%;
+                background: #000;
+                opacity: 1;
+                top: 0;
+                left: 0;
+                z-index: -1;
+                border-radius: (4/16rem);
+                transition: width 0.3s;
+            }
+
+            &:hover {
+                &:before {
+                    width: 100%;
+                }
+            }
+        }
+    }
+}
+
+/* Small Desktop - 1300px */
+@media only screen and (min-width: 81.25rem) {
+    #meet-382 {
+        .cs-container {
+            max-width: (1280/16rem);
+        }
+        .cs-card-group {
+            flex-direction: row;
+            flex-wrap: nowrap;
+        }
+    }
+}
+
+/* Dark Mode */
+@media only screen and (min-width: 0rem) {
+    body.dark-mode {
+        #meet-382 {
+            .cs-topper {
+                color: var(--primaryLight);
+            }
+            .cs-title,
+            .cs-text,
+            .cs-name {
+                color: var(--bodyTextColorWhite);
+            }
+
+            .cs-graphic {
+                mix-blend-mode: overlay;
+                filter: grayscale(1) brightness(500%);
+                opacity: 0.5;
+            }
+
+            .cs-job {
+                color: var(--bodyTextColorWhite);
+                opacity: 0.7;
+            }
+        }
+    }
+}
+</style>
