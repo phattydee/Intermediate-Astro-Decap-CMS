@@ -4,7 +4,6 @@ import { getImage } from "astro:assets";
 
 // Components
 import BaseLayout from "@layouts/BaseLayout.astro";
-import Hero from "@components/Hero/Hero.astro";
 import Services from "@components/Services/Services.astro";
 import SideBySide from "@components/SideBySide/SideBySide.astro";
 import SideBySideReverse from "@components/SideBySideReverse/SideBySideReverse.astro";
@@ -19,7 +18,6 @@ const optimizedHeroImage = await getImage({ src: heroImage, format: "webp" });
 ---
 
 <BaseLayout title="Pixel Perfect Websites" description="Meta description for the page" heroImage={optimizedHeroImage}>
-	<Hero image={optimizedHeroImage} />
 	<Services />
 	<SideBySide />
 	<SideBySideReverse />
